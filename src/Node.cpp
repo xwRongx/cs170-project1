@@ -1,5 +1,6 @@
 #include "../headers/Node.h"
 
+//initializes goal state every time
 Node::Node()
 {
     int tile = 1;
@@ -22,6 +23,11 @@ Node::Node()
     childDown = nullptr;
 }
 
+//initialize specific board
+Node::Node(int b[3][3]){
+    board = b;
+}
+
 //setters
 void Node::setParent(Node* par){
     parent = par;
@@ -38,7 +44,11 @@ void Node::setChildUp(Node* up){
 void Node::setChildDown(Node* down){
     childDown = down;
 }
+void Node::setTile(int row, int col, int value){
+    board[row][col] = value;
+}
 
+//getters
 int Node::getTile(int row, int col){
     return board[row][col];
 }

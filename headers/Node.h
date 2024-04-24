@@ -22,7 +22,9 @@ private:
     Node* childDown; //if empty is moved down
     
 public:
-    Node(/* args */);
+    //Node() no args makes goal state
+    Node();
+    Node(int b[3][3]);
     ~Node();
 
     //setters
@@ -31,6 +33,7 @@ public:
     void setChildRight(Node* right);
     void setChildUp(Node* up);
     void setChildDown(Node* down);
+    void setTile(int row, int col, int value);
 
     //return tile at location on board
     int getTile(int row, int col);

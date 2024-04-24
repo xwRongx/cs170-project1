@@ -2,10 +2,13 @@
 
 Tree::Tree(Node* initial)
 {
-    initialState = initial;
-    goalState = new Node(Node());
+    root = initial;
 }
 
 Tree::~Tree()
 {
+}
+
+void Tree::setRoot(Node* node){
+    root = node;
 }
