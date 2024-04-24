@@ -24,6 +24,7 @@ private:
 public:
     //Node() no args makes goal state
     Node();
+    //Node(int b[3][3]) takes a 2d array and makes it a node
     Node(int b[3][3]);
     ~Node();
 

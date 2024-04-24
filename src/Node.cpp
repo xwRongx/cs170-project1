@@ -25,7 +25,11 @@ Node::Node()
 
 //initialize specific board
 Node::Node(int b[3][3]){
-    board = b;
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            board[i][j] = b[i][j];
+        }
+    }
 }
 
 //setters
