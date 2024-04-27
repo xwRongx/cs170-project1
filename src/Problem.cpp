@@ -1,47 +1,52 @@
 #include "../headers/Problem.h"
+
 #include <iostream>
 #include <utility>
 using namespace std;
 
+//hardcoded problem
 Problem::Problem(){
-     for(int i = 0; i < 3; i++){
-        for(int x = 0; x < 3; x++){
-           initial_state[i][x] = 0;
-           goal_state[i][x] = 0;
-        }
-    }
+    initialState = new Node(Node()); //change hardcode to test or something
+    goalState = new Node(Node());
+}
+//user input initialState problem
+Problem::Problem(Node* init)
+{
+    //create initial node from user input (display class?), then initialize tree with inital node as root
+    initialState = init;
+    goalState = new Node(Node());
 
+    tree = new Tree(Tree(initialState));
 }
 
-int* Problem::getInitialState(){
-     return &initial_state[0][0];
-}
-int* Problem::getGoalState(){
-    return &goal_state[0][0];
-
+//setters
+void Problem::setInitial(Node* init){
+    initialState = init;
 }
 
-void Problem::setInitialState(int initial[3][3]){
-    for(int i = 0; i < 3; i++){
-        for(int x = 0; x < 3; x++)
-           initial_state[i][x] = initial[i][x];
-    }
-}
-void Problem::setGoalState(int goal[3][3]){
-    for(int i = 0; i < 3; i++){
-        for(int x = 0; x < 3; x++)
-           goal_state[i][x] = goal[i][x];
-    }
+void Problem::setGoal(Node* goal){
+    goalState = goal;
 }
 
-    //Operators (move empty space up/down/left/right)
+//getters
+Node* Problem::getInitialState(){
+    return initialState;
+}
+
+Node* Problem::getGoalState(){
+    return goalState;
+}
+
+//Operators (move empty space up/down/left/right)
 bool Problem::moveUp(){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
 
    if(row > 0){
-    swap(initial_state[row][col], initial_state[row-1][col]);
+    int temp = initialState->getTile(row,col);
+    initialState->setTile(row,col,initialState->getTile(row-1,col));
+    initialState->setTile(row-1,col,temp);
     return 1;
    }
    else{
@@ -56,7 +61,9 @@ bool Problem::moveDown(){
    int row = location.first;
    int col= location.second;
    if(row < 2){
-    swap(initial_state[row][col], initial_state[row+1][col]);
+    int temp = initialState->getTile(row,col);
+    initialState->setTile(row,col,initialState->getTile(row+1,col));
+    initialState->setTile(row+1,col,temp);
     return 1;
    }
    else{
@@ -71,7 +78,9 @@ bool Problem::moveLeft(){
    int row = location.first;
    int col= location.second;
    if(col > 0){
-    swap(initial_state[row][col], initial_state[row][col-1]);
+    int temp = initialState->getTile(row,col);
+    initialState->setTile(row,col,initialState->getTile(row,col-1));
+    initialState->setTile(row,col-1,temp);
     return 1;
    }
    else{
@@ -86,7 +95,9 @@ bool Problem::moveRight(){
    int row = location.first;
    int col= location.second;
    if(col < 2){
-    swap(initial_state[row][col], initial_state[row][col+1]);
+    int temp = initialState->getTile(row,col);
+    initialState->setTile(row,col,initialState->getTile(row,col+1));
+    initialState->setTile(row,col+1,temp);
     return 1;
    }
    else{
@@ -98,7 +109,7 @@ bool Problem::moveRight(){
 pair<int, int>Problem::findSpace(){
     for(int i = 0; i < 3; i++){
         for(int x = 0; x < 3; x++){
-            if(initial_state[i][x] == 0){
+            if(initialState->getTile(i,x) == 0){
                 return make_pair(i, x); //return pair as row and column
             }
         }
@@ -109,7 +120,7 @@ pair<int, int>Problem::findSpace(){
  void Problem::display(){
     for(int i = 0; i < 3; i++){
         for(int x = 0; x < 3; x++){
-            cout << initial_state[i][x] << " ";
+            cout << initialState->getTile(i,x) << " ";
         }
         cout << endl;
     }
@@ -118,3 +129,4 @@ pair<int, int>Problem::findSpace(){
 
 Problem::~Problem(){
 }
+
