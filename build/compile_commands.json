@@ -1,0 +1,47 @@
+[
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\test.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\test.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/test.cpp"
+},
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\src\\AlgEuclidean.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\src\\AlgEuclidean.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/src/AlgEuclidean.cpp"
+},
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\src\\AlgGeneric.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\src\\AlgGeneric.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/src/AlgGeneric.cpp"
+},
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\src\\AlgMisplaced.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\src\\AlgMisplaced.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/src/AlgMisplaced.cpp"
+},
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\src\\AlgUCS.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\src\\AlgUCS.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/src/AlgUCS.cpp"
+},
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\src\\Display.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\src\\Display.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/src/Display.cpp"
+},
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\src\\Node.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\src\\Node.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/src/Node.cpp"
+},
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\src\\Problem.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\src\\Problem.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/src/Problem.cpp"
+},
+{
+  "directory": "C:/Users/Citrus/Documents/GitHub/cs170-project1/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\EightPuzzle.dir\\src\\Tree.cpp.obj -c C:\\Users\\Citrus\\Documents\\GitHub\\cs170-project1\\src\\Tree.cpp",
+  "file": "C:/Users/Citrus/Documents/GitHub/cs170-project1/src/Tree.cpp"
+}
+]

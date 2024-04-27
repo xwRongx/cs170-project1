@@ -1,0 +1,5 @@
+C:/Users/Citrus/Documents/GitHub/cs170-project1/build/CMakeFiles/EightPuzzle.dir
+C:/Users/Citrus/Documents/GitHub/cs170-project1/build/CMakeFiles/edit_cache.dir
+C:/Users/Citrus/Documents/GitHub/cs170-project1/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Citrus/Documents/GitHub/cs170-project1/build/src/CMakeFiles/edit_cache.dir
+C:/Users/Citrus/Documents/GitHub/cs170-project1/build/src/CMakeFiles/rebuild_cache.dir

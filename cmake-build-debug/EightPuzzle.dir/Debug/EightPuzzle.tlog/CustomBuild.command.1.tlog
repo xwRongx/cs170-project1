@@ -1,0 +1,10 @@
+^C:\USERS\CITRUS\DOCUMENTS\GITHUB\CS170-PROJECT1\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Citrus/Documents/GitHub/cs170-project1 -BC:/Users/Citrus/Documents/GitHub/cs170-project1/cmake-build-debug --check-stamp-file C:/Users/Citrus/Documents/GitHub/cs170-project1/cmake-build-debug/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
