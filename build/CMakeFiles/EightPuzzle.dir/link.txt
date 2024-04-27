@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\EightPuzzle.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\EightPuzzle.dir/objects.a @CMakeFiles\EightPuzzle.dir\objects1.rsp
-C:\msys64\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\EightPuzzle.dir/objects.a -Wl,--no-whole-archive -o EightPuzzle.exe -Wl,--out-implib,libEightPuzzle.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\EightPuzzle.dir\linklibs.rsp
