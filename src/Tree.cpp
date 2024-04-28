@@ -12,3 +12,7 @@ Tree::~Tree()
 void Tree::setRoot(Node* node){
     root = node;
 }
+
+Node* Tree::getRoot() const {
+    return root;
+}
