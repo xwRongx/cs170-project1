@@ -14,6 +14,7 @@ public:
     void setRoot(Node* node);
 
     //getters
+    Node* getRoot() const;
 };
 
 
