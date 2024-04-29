@@ -1,3 +1,5 @@
+#ifndef TREE
+#define TREE
 #include "Node.h"
 
 class Tree
@@ -5,6 +7,10 @@ class Tree
 private:
     //root node
     Node* root;
+    Node* currentNode;
+    Node* nextNode;
+    int nodeCount;
+    
 public:
     //in PROBLEM class, create initial node from user input/ hardcode, then initialize tree with inital node as root
     Tree(Node* initial);
@@ -12,9 +18,20 @@ public:
 
     //setters
     void setRoot(Node* node);
+    void setNextNode(Node* node);
 
     //getters
     Node* getRoot() const;
+    Node* getNextNode();
+
+    void incrementNodeCount();
+    void duplicateCheck();
 };
+
+Tree::~Tree()
+{
+}
+
+#endif
 
 

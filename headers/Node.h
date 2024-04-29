@@ -36,13 +36,18 @@ public:
     void setChildDown(Node* down);
     void setTile(int row, int col, int value);
 
-    //return tile at location on board
-    int getTile(int row, int col);
-    
-    
+    //getters
+    int getTile(int row, int col); // return tile at location on board
+    Node* getParent() const;
+    Node* getChildLeft() const;
+    Node* getChildRight() const;
+    Node* getChildUp() const;
+    Node* getChildDown() const;
+
+    //for duplicateCheck in Tree
+    bool Node::isEqual(Node* n);
+    void restoreState(const Node* previousNode);
 };
-
-
 
 Node::~Node()
 {
