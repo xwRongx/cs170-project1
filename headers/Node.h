@@ -45,7 +45,7 @@ public:
     Node* getChildDown() const;
 
     //for duplicateCheck in Tree
-    bool Node::isEqual(Node* n);
+    bool isEqual(Node* n);
     void restoreState(const Node* previousNode);
 };
 
