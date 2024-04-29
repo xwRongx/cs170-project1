@@ -5,6 +5,8 @@ class Tree
 private:
     //root node
     Node* root;
+    
+
 public:
     //in PROBLEM class, create initial node from user input/ hardcode, then initialize tree with inital node as root
     Tree(Node* initial);
@@ -12,6 +14,7 @@ public:
 
     //setters
     void setRoot(Node* node);
+    void incrementNodes();
 
     //getters
 };

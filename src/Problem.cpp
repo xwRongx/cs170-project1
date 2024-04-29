@@ -24,7 +24,7 @@ void Problem::setInitial(Node* init){
     initialState = init;
 }
 
-void Problem::setGoal(Node* goal){
+void Problem::setGoalState(Node* goal){
     goalState = goal;
 }
 

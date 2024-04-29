@@ -19,13 +19,20 @@ private:
     Node* childLeft; //if empty is moved left
     Node* childRight; //if empty is moved right
     Node* childUp; //if empty is moved up
-    Node* childDown; //if empty is moved down
+    Node* childDown; //if empty is moved 
+    
+    //information for algorithms 
+    int gn; //g(n), # steps from initial state 
+    int hn; //h(n), heuristic calculation to goal state
+    int fn; //for A* search, f(n) = g(n) + h(n)
     
 public:
     //Node() no args makes goal state
     Node();
     //Node(int b[3][3]) takes a 2d array and makes it a node
     Node(int b[3][3]);
+    //takes parent node and duplicates that board state, sets parent ptr, increments gn
+    Node(Node* parentNode);
     ~Node();
 
     //setters
@@ -35,10 +42,11 @@ public:
     void setChildUp(Node* up);
     void setChildDown(Node* down);
     void setTile(int row, int col, int value);
+    void setStepsFromInitialState(int i);
 
     //return tile at location on board
     int getTile(int row, int col);
-    
+    int getStepsFromInitialState();
     
 };
 

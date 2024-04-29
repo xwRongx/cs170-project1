@@ -1,4 +1,5 @@
 #include "../headers/Node.h"
+#include "../headers/Tree.h"
 
 //initializes goal state every time
 Node::Node()
@@ -21,6 +22,10 @@ Node::Node()
     childRight = nullptr;
     childUp = nullptr; 
     childDown = nullptr;
+
+    gn = -1;
+    hn = -1;
+    fn = -1;
 }
 
 //initialize specific board
@@ -30,6 +35,18 @@ Node::Node(int b[3][3]){
             board[i][j] = b[i][j];
         }
     }
+}
+
+Node::Node(Node* parentNode){
+    parent = parentNode;
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            board[i][j] = parentNode->board[i][j];
+        }
+    }
+    //parentNode->childDown; change based on operator
+    //need to tree->incrementNodes(); where node is instantiated
+    gn++;
 }
 
 //setters
@@ -52,7 +69,15 @@ void Node::setTile(int row, int col, int value){
     board[row][col] = value;
 }
 
+void Node::setStepsFromInitialState(int i){
+    gn = i;
+}
+
 //getters
 int Node::getTile(int row, int col){
     return board[row][col];
+}
+
+int Node::getStepsFromInitialState(){
+    return gn;
 }
