@@ -74,8 +74,8 @@ Node* Node::getChildDown() const {
 
 //duplicateChecker in Tree
 bool Node::isEqual(Node* n) {
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
             if (board[i][j] != n->getTile(i, j)) {
                 return false; // if there is a difference in any tile then return false
             }
@@ -86,9 +86,9 @@ bool Node::isEqual(Node* n) {
 
 // if the board state of the current node is equal to the board state of node n
 void Node::restoreState(const Node* previousNode) {
-    // Copy the board state from the source node
+    // Copy the board state from a previous node
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; ++j) {
+        for (int j = 0; j < 3; j++j) {
             this->board[i][j] = previousNode->board[i][j];
         }
     }

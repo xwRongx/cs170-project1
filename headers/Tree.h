@@ -5,12 +5,11 @@
 class Tree
 {
 private:
-    //root node
-    Node* root;
+    Node* root; //root node
     Node* currentNode;
     Node* nextNode;
     int nodeCount;
-    
+
 public:
     //in PROBLEM class, create initial node from user input/ hardcode, then initialize tree with inital node as root
     Tree(Node* initial);

@@ -48,7 +48,6 @@ Node* Tree::getNextNode() {
     return currentNode;
 }
 
-
 void Tree::incrementNodeCount() {
     nodeCount++;
 }
