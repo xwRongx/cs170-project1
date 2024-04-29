@@ -88,7 +88,7 @@ bool Node::isEqual(Node* n) {
 void Node::restoreState(const Node* previousNode) {
     // Copy the board state from a previous node
     for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++j) {
+        for (int j = 0; j < 3; j++) {
             this->board[i][j] = previousNode->board[i][j];
         }
     }
