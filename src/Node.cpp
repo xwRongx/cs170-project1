@@ -1,5 +1,6 @@
 #include "../headers/Node.h"
 #include "../headers/Tree.h"
+#include "../headers/Problem.h"
 
 //initializes goal state every time
 Node::Node()
@@ -46,7 +47,7 @@ Node::Node(Node* parentNode){
     }
     //parentNode->childDown; change based on operator
     //need to tree->incrementNodes(); where node is instantiated
-    gn++;
+    gn = parentNode->getGn()+1;
 }
 
 //setters
@@ -92,4 +93,27 @@ int Node::getHn(){
 }
 int Node::getFn(){
     return fn;
+}
+
+
+/*
+vector Node::expand(){
+  //setup
+  parentNode;
+  newNode = new Node(parentNode);
+  newNode = operator(newNode); //move up/down/left/right so makes a new board state
+  if (!isThereADuplicate(newNode)){
+    //if there is no duplicate, then we can add to queue
+    //if there is a duplicate we dont do anything bc its already expanded
+  }
+  return queue of all new expanded nodes;
+}
+
+*/
+
+vector<Node>* Node::expand(Node* parentNode, Problem* p){
+
+    //check if each operator returns true, needs problem changes
+    //if tree->duplicate, needs tree changes
+
 }

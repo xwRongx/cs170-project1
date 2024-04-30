@@ -1,5 +1,7 @@
-#ifndef NODE
-#define NODE
+#include <vector>
+#include "Problem.h"
+using namespace std;
+
 class Node
 {
 private:
@@ -41,6 +43,7 @@ public:
     void setChildRight(Node* right);
     void setChildUp(Node* up);
     void setChildDown(Node* down);
+    //needs row and col location on board, and value to set it to
     void setTile(int row, int col, int value);
     void setGn(int i);
     void setHn(int i);
@@ -52,8 +55,8 @@ public:
     int getHn();
     int getFn();
 
-    //more
-    
+    //returns vector of new nodes created via using valid operators 
+    vector<Node>* expand(Node* parentNode, Problem* p);
     
 };
 
@@ -63,4 +66,3 @@ Node::~Node()
 {
 }
 
-#endif
