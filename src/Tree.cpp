@@ -66,17 +66,20 @@ void Tree::incrementNodeCount(){
     nodeCount++;
 }
 
-// Determines the direction of the existing node relative to its parent
-// and updates the parent child's pointer
-void Tree::updateChildPointer(Node* existingNode, Node* newNode) {
-    if (existingNode == existingNode->getParent()->getChildLeft()) {
-        existingNode->getParent()->setChildLeft(newNode);
-    } else if (existingNode == existingNode->getParent()->getChildRight()) {
-        existingNode->getParent()->setChildRight(newNode);
-    } else if (existingNode == existingNode->getParent()->getChildUp()) {
-        existingNode->getParent()->setChildUp(newNode);
-    } else if (existingNode == existingNode->getParent()->getChildDown()) {
-        existingNode->getParent()->setChildDown(newNode);
+/* Updates the parent's child pointer to point to the duplicate node
+   to prevent the exploring of that duplicate state again  */
+void Tree::updateChildPointer(Node* existingNode, Node* duplicateNode) {
+    Node* parentNode = existingNode->getParent();
+    if (parentNode != nullptr) {
+        if (existingNode == parentNode->getChildLeft()) {
+            parentNode->setChildLeft(duplicateNode);
+        } else if (existingNode == parentNode->getChildRight()) {
+            parentNode->setChildRight(duplicateNode);
+        } else if (existingNode == parentNode->getChildUp()) {
+            parentNode->setChildUp(duplicateNode);
+        } else if (existingNode == parentNode->getChildDown()) {
+            parentNode->setChildDown(duplicateNode);
+        }
     }
 }
 
