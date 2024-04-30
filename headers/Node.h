@@ -42,11 +42,18 @@ public:
     void setChildUp(Node* up);
     void setChildDown(Node* down);
     void setTile(int row, int col, int value);
-    void setStepsFromInitialState(int i);
+    void setGn(int i);
+    void setHn(int i);
+    void setFn(int i);
 
     //return tile at location on board
     int getTile(int row, int col);
-    int getStepsFromInitialState();
+    int getGn();
+    int getHn();
+    int getFn();
+
+    //more
+    
     
 };
 
