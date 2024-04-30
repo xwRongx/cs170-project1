@@ -5,8 +5,8 @@ using namespace std;
 
 /*THIS IS JUST TO TEST FUNCTIONS*/
 
-int main(){
-    /* Problem test;
+int test(){
+    Problem test;
       int myarr[3][3];
     cout << "Enter the first row, use space or tabs between numbers:";
     for(int x = 0; x < 3;x++){

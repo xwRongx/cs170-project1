@@ -1,3 +1,9 @@
 .vscode/
 build/
 .idea/
+*Makefile
+*.cbp
+*.exe
+*cmake_install.cmake
+*.log
+CMakeCache.txt

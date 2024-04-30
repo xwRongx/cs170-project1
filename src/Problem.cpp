@@ -20,7 +20,7 @@ Problem::Problem(Node* init)
 }
 
 //setters
-void Problem::setInitial(Node* init){
+void Problem::setInitialState(Node* init){
     initialState = init;
 }
 
@@ -141,16 +141,11 @@ pair<int, int>Problem::findSpace(){
     return make_pair(-1, -1); //this will throw an error if we cannot find a space
  }
 
- void Problem::display(){
-    for(int i = 0; i < 3; i++){
-        for(int x = 0; x < 3; x++){
-            cout << initialState->getTile(i,x) << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
- }
 
 Problem::~Problem(){
+}
+
+bool Problem::checkIfStateIsGoal(Node n) {
+    return &n == initialState;
 }
 
