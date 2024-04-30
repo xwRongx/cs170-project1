@@ -42,10 +42,4 @@ public:
     
 };
 
-
-
-Node::~Node()
-{
-}
-
 #endif

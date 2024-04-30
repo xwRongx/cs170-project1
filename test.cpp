@@ -5,7 +5,7 @@ using namespace std;
 
 /*THIS IS JUST TO TEST FUNCTIONS*/
 
-int main(){
+int test(){
     Problem test;
       int myarr[3][3];
     cout << "Enter the first row, use space or tabs between numbers:";
@@ -21,11 +21,9 @@ int main(){
         cin >> myarr[2][x];
     }
 
-    test.setInitialState(myarr);
+    //test.setInitialState(myarr);
     test.findSpace();
-    test.display();
     test.moveUp();
-    test.display();
 
     return 0;
 }
