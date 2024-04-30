@@ -84,6 +84,21 @@ void Node::setFn(int i){
 int Node::getTile(int row, int col){
     return board[row][col];
 }
+Node* Node::getParent() const {
+    return parent;
+}
+Node* Node::getChildLeft() const {
+    return childLeft;
+}
+Node* Node::getChildRight() const {
+    return childRight;
+}
+Node* Node::getChildUp() const {
+    return childUp;
+}
+Node* Node::getChildDown() const {
+    return childDown;
+}
 
 int Node::getGn(){
     return gn;
@@ -95,6 +110,16 @@ int Node::getFn(){
     return fn;
 }
 
+bool Node::isEqual(Node* n) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (board[i][j] != n->getTile(i, j)) {
+                return false; // if there is a difference in any tile then return false
+            }
+        }
+    } 
+    return true; // all tiles match positions, return true
+}
 
 /*
 vector Node::expand(){

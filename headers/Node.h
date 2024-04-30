@@ -49,12 +49,20 @@ public:
     void setHn(int i);
     void setFn(int i);
 
-    //return tile at location on board
-    int getTile(int row, int col);
+    //getters
+    // return tile at location on board
+    int getTile(int row, int col); 
+    Node* getParent() const;
+    Node* getChildLeft() const;
+    Node* getChildRight() const;
+    Node* getChildUp() const;
+    Node* getChildDown() const;
     int getGn();
     int getHn();
     int getFn();
 
+    //checks if nodes have same board state
+    bool isEqual(Node* n);
     //returns vector of new nodes created via using valid operators 
     vector<Node>* expand(Node* parentNode, Problem* p);
     
