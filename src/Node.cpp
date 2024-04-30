@@ -69,8 +69,14 @@ void Node::setTile(int row, int col, int value){
     board[row][col] = value;
 }
 
-void Node::setStepsFromInitialState(int i){
-    gn = i;
+void Node::setGn(int i){
+    gn = 1;
+}
+void Node::setHn(int i){
+    hn = i;
+}
+void Node::setFn(int i){
+    fn = i;
 }
 
 //getters
@@ -78,6 +84,12 @@ int Node::getTile(int row, int col){
     return board[row][col];
 }
 
-int Node::getStepsFromInitialState(){
+int Node::getGn(){
     return gn;
+}
+int Node::getHn(){
+    return hn;
+}
+int Node::getFn(){
+    return fn;
 }
