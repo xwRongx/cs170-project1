@@ -22,8 +22,13 @@ public:
     //getters
     Node* getRoot() const;
     Node* getNextNode();
+    Node* getNextChild(Node* currentNode);
 
     void incrementNodeCount();
+    
+    void updateChildPointer(Node* existingNode, Node* newNode);
+    bool searchForDuplicate(Node* currentNode, Node* newNode);
+    bool isThereADuplicate(Node* newNode);
     void duplicateCheck();
 };
 
