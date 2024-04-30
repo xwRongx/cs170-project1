@@ -1,5 +1,10 @@
+
+
 #include "../headers/Node.h"
 #include "../headers/Tree.h"
+
+
+
 
 //initializes goal state every time
 Node::Node()

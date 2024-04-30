@@ -38,16 +38,24 @@ Node* Problem::getGoalState(){
 }
 
 //Operators (move empty space up/down/left/right)
-bool Problem::moveUp(){
+bool Problem::moveUp(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
 
    if(row > 0){
+    Node* upNode = new Node(*state);
+    int temp = upNode->getTile(row, col);
+    upNode->setTile(row, col, upNode->getTile(row-1,col));
+    upNode->setTile(row-1,col,temp);
+    state->setChildUp(upNode);
+    tree->incrementNodes();
+    /*
     int temp = initialState->getTile(row,col);
     initialState->setTile(row,col,initialState->getTile(row-1,col));
     initialState->setTile(row-1,col,temp);
-    return 1;
+    */
+    return true;
    }
    else{
     cout << "Cannot move Up!\n";
@@ -56,14 +64,18 @@ bool Problem::moveUp(){
 
 
 }
-bool Problem::moveDown(){
+bool Problem::moveDown(Node* state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(row < 2){
-    int temp = initialState->getTile(row,col);
-    initialState->setTile(row,col,initialState->getTile(row+1,col));
-    initialState->setTile(row+1,col,temp);
+    Node* downNode = new Node(*state);
+    downNode->setParent(state);
+    int temp = downNode->getTile(row, col);
+    downNode->setTile(row, col, downNode->getTile(row+1,col));
+    downNode->setTile(row+1,col,temp);
+    state->setChildUp(downNode);
+    tree->incrementNodes();
     return 1;
    }
    else{
@@ -73,14 +85,20 @@ bool Problem::moveDown(){
 
 
 }
-bool Problem::moveLeft(){
+bool Problem::moveLeft(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(col > 0){
-    int temp = initialState->getTile(row,col);
+     Node* leftNode = new Node(*state);
+     leftNode->setParent(state);
+     int temp = leftNode->getTile(row,col);
+     leftNode->setTile(row,col, leftNode->getTile(row,col-1));
+     leftNode->setTile(row, col-1, temp);
+     /* int temp = initialState->getTile(row,col);
     initialState->setTile(row,col,initialState->getTile(row,col-1));
     initialState->setTile(row,col-1,temp);
+    */
     return 1;
    }
    else{
@@ -90,15 +108,21 @@ bool Problem::moveLeft(){
 
 
 }
-bool Problem::moveRight(){
+bool Problem::moveRight(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(col < 2){
-    int temp = initialState->getTile(row,col);
-    initialState->setTile(row,col,initialState->getTile(row,col+1));
-    initialState->setTile(row,col+1,temp);
-    return 1;
+        Node* rightNode = new Node(*state);
+        rightNode->setParent(state);
+        int temp = rightNode->getTile(row,col);
+        rightNode->setTile(row,col, rightNode->getTile(row,col-1));
+        rightNode->setTile(row, col-1, temp);
+     /* int temp = initialState->getTile(row,col);
+    initialState->setTile(row,col,initialState->getTile(row,col-1));
+    initialState->setTile(row,col-1,temp);
+    */
+       return 1;
    }
    else{
     cout << "Cannot move right!\n";
