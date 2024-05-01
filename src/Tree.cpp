@@ -1,13 +1,10 @@
 #include "../headers/Tree.h"
+#include "../headers/Node.h"
 
 Tree::Tree(Node* initial)
 {
     root = initial;
     nodeCount = 1;
-}
-
-Tree::~Tree()
-{
 }
 
 //setters

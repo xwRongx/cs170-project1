@@ -20,27 +20,10 @@ int test(){
       for(int x = 0; x < 3;x++){
         cin >> myarr[2][x];
     }
-    */
+
     //test.setInitialState(myarr);
-    //test.findSpace();
-    //test.display();
+    test.findSpace();
     //test.moveUp();
-    //test.display();
-    int initial[3][3] = {{1, 2, 3}, {4, 0, 5}, {6, 7, 8}};
-    Node* initialState = new Node(initial);
-    Problem problem(initialState);
 
-    
-    cout << "Initial State:" << endl;
-    problem.display();
-
-   
-    cout << "Up" << endl;
-    if (problem.moveUp(problem.getInitialState())) {
-        cout << "Move up successful." << endl;
-    } else {
-        cout << "Move up failed." << endl;
-    }
-    
     return 0;
 }

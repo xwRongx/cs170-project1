@@ -135,12 +135,22 @@ vector Node::expand(){
   }
   return queue of all new expanded nodes;
 }
-
 */
-
 vector<Node>* Node::expand(Node* parentNode, Problem* p){
+    vector<Node>* queue;
+    
+    Node* upChild = new Node(parentNode);
+    Node* downChild = new Node(parentNode);
+    Node* leftChild = new Node(parentNode);
+    Node* rightChild = new Node(parentNode);
 
-    //check if each operator returns true, needs problem changes
+    //check if each operator returns true
+    //if(p->moveUp(upChild)){
+        
+        //if duplicate &&/or expanded, dont add to queue
+        //if new, unexpanded node, add to queue
+    //}
+    
     //if tree->duplicate, needs tree changes
-
+    return queue;
 }

@@ -58,7 +58,7 @@ bool Problem::moveUp(Node *state){
     return true;
    }
    else{
-    cout << "Cannot move Up!\n";
+    //cout << "Cannot move Up!\n";
     return 0;
    }
 
@@ -70,7 +70,6 @@ bool Problem::moveDown(Node* state){
    int col= location.second;
    if(row < 2){
     Node* downNode = new Node(*state);
-    downNode->setParent(state);
     int temp = downNode->getTile(row, col);
     downNode->setTile(row, col, downNode->getTile(row+1,col));
     downNode->setTile(row+1,col,temp);
@@ -79,7 +78,7 @@ bool Problem::moveDown(Node* state){
     return 1;
    }
    else{
-    cout << "Cannot move Down!\n";
+    //cout << "Cannot move Down!\n";
     return 0;
    }
 
@@ -91,7 +90,6 @@ bool Problem::moveLeft(Node *state){
    int col= location.second;
    if(col > 0){
      Node* leftNode = new Node(*state);
-     leftNode->setParent(state);
      int temp = leftNode->getTile(row,col);
      leftNode->setTile(row,col, leftNode->getTile(row,col-1));
      leftNode->setTile(row, col-1, temp);
@@ -102,7 +100,7 @@ bool Problem::moveLeft(Node *state){
     return 1;
    }
    else{
-    cout << "Cannot move left!\n";
+    //cout << "Cannot move left!\n";
     return 0;
    }
 
@@ -114,7 +112,6 @@ bool Problem::moveRight(Node *state){
    int col= location.second;
    if(col < 2){
         Node* rightNode = new Node(*state);
-        rightNode->setParent(state);
         int temp = rightNode->getTile(row,col);
         rightNode->setTile(row,col, rightNode->getTile(row,col-1));
         rightNode->setTile(row, col-1, temp);
@@ -125,7 +122,7 @@ bool Problem::moveRight(Node *state){
        return 1;
    }
    else{
-    cout << "Cannot move right!\n";
+    //cout << "Cannot move right!\n";
     return 0;
    }
 }

@@ -4,6 +4,9 @@
     <ClCompile Include="C:\Users\46xxr\OneDrive\Documents\240505cs170project1\cs170-project1\test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\46xxr\OneDrive\Documents\240505cs170project1\cs170-project1\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\46xxr\OneDrive\Documents\240505cs170project1\cs170-project1\src\AlgEuclidean.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

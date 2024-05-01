@@ -1,3 +1,6 @@
+#ifndef NODE
+#define NODE
+
 #include <vector>
 #include "Problem.h"
 using namespace std;
@@ -74,3 +77,4 @@ Node::~Node()
 {
 }
 
+#endif
