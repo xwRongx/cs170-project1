@@ -141,13 +141,13 @@ vector Node::expand(){
   return queue of all new expanded nodes;
 }
 */
-queue<Node*>* Node::expand(Node* parentNode, Problem* p){
+queue<Node*>* Node::expand(Problem* p){
     queue<Node*>* queue;
     
-    Node* upChild = p->moveUp(parentNode);
-    Node* downChild = p->moveDown(parentNode);
-    Node* leftChild = p->moveLeft(parentNode);
-    Node* rightChild = p->moveRight(parentNode);
+    Node* upChild = p->moveUp(this);
+    Node* downChild = p->moveDown(this);
+    Node* leftChild = p->moveLeft(this);
+    Node* rightChild = p->moveRight(this);
 
     if(upChild != nullptr){
         queue->push(upChild);

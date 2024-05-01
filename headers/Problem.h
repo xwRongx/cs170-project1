@@ -35,7 +35,6 @@ public:
     pair<int, int>findSpace(); //Find 0 (empty space) in the 3 by 3 array to begin operators(up, down left, right) 
     void display();
 
-    bool checkIfStateIsGoal(Node n);
     ~Problem();
 };
 

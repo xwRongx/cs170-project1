@@ -7,3 +7,6 @@ build/
 *cmake_install.cmake
 *.log
 CMakeCache.txt
+CMakeFiles/
+*/CMakeFiles/
+.cmake/

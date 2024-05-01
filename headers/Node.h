@@ -67,7 +67,7 @@ public:
     //checks if nodes have same board state
     bool isEqual(Node* n);
     //returns vector of new nodes created via using valid operators 
-    queue<Node*>* expand(Node* parentNode, Problem* p);
+    queue<Node*>* expand(Problem* p);
     
 };
 

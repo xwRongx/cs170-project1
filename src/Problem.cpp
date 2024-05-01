@@ -159,7 +159,3 @@ pair<int, int>Problem::findSpace(){
 Problem::~Problem(){
 }
 
-bool Problem::checkIfStateIsGoal(Node n) {
-    return &n == initialState;
-}
-
