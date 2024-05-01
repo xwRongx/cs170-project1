@@ -1,5 +1,10 @@
 #ifndef NODE
 #define NODE
+
+#include <queue>
+#include "Problem.h"
+using namespace std;
+
 class Node
 {
 private:
@@ -19,13 +24,20 @@ private:
     Node* childLeft; //if empty is moved left
     Node* childRight; //if empty is moved right
     Node* childUp; //if empty is moved up
-    Node* childDown; //if empty is moved down
+    Node* childDown; //if empty is moved 
+    
+    //information for algorithms 
+    int gn; //g(n), # steps from initial state 
+    int hn; //h(n), heuristic calculation to goal state
+    int fn; //for A* search, f(n) = g(n) + h(n)
     
 public:
     //Node() no args makes goal state
     Node();
     //Node(int b[3][3]) takes a 2d array and makes it a node
     Node(int b[3][3]);
+    //takes parent node and duplicates that board state, sets parent ptr, increments gn
+    Node(Node* parentNode);
     ~Node();
 
     //setters
@@ -34,18 +46,29 @@ public:
     void setChildRight(Node* right);
     void setChildUp(Node* up);
     void setChildDown(Node* down);
+    //needs row and col location on board, and value to set it to
     void setTile(int row, int col, int value);
+    void setGn(int i);
+    void setHn(int i);
+    void setFn(int i);
 
-    //return tile at location on board
-    int getTile(int row, int col);
-    
+    //getters
+    // return tile at location on board
+    int getTile(int row, int col); 
+    Node* getParent() const;
+    Node* getChildLeft() const;
+    Node* getChildRight() const;
+    Node* getChildUp() const;
+    Node* getChildDown() const;
+    int getGn();
+    int getHn();
+    int getFn();
+
+    //checks if nodes have same board state
+    bool isEqual(Node* n);
+    //returns vector of new nodes created via using valid operators 
+    queue<Node*>* expand(Problem* p);
     
 };
-
-
-
-Node::~Node()
-{
-}
 
 #endif

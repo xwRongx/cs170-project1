@@ -1,8 +1,5 @@
 #include "../headers/Problem.h"
 
-#include <iostream>
-#include <utility>
-using namespace std;
 
 //hardcoded problem
 Problem::Problem(){
@@ -20,11 +17,11 @@ Problem::Problem(Node* init)
 }
 
 //setters
-void Problem::setInitial(Node* init){
+void Problem::setInitialState(Node* init){
     initialState = init;
 }
 
-void Problem::setGoal(Node* goal){
+void Problem::setGoalState(Node* goal){
     goalState = goal;
 }
 
@@ -37,72 +34,113 @@ Node* Problem::getGoalState(){
     return goalState;
 }
 
+Tree* Problem::getTree(){
+    return tree;
+}
+
 //Operators (move empty space up/down/left/right)
-bool Problem::moveUp(){
+Node* Problem::moveUp(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
 
    if(row > 0){
-    int temp = initialState->getTile(row,col);
-    initialState->setTile(row,col,initialState->getTile(row-1,col));
-    initialState->setTile(row-1,col,temp);
-    return 1;
+    // Create new node
+    Node* upNode = new Node(*state);
+    int temp = upNode->getTile(row, col);
+    upNode->setTile(row, col, upNode->getTile(row-1,col));
+    upNode->setTile(row-1,col,temp);
+
+    // Check if new node is a duplicate
+    if(tree->isThereADuplicate(upNode)){
+        return nullptr;
+    }else{
+        state->setChildUp(upNode);
+        tree->incrementNodes();
+        return upNode;
+    }
    }
    else{
-    cout << "Cannot move Up!\n";
-    return 0;
+    std::cout << "Cannot move Up!\n";
+    return nullptr;
    }
 
 
 }
-bool Problem::moveDown(){
+Node* Problem::moveDown(Node* state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(row < 2){
-    int temp = initialState->getTile(row,col);
-    initialState->setTile(row,col,initialState->getTile(row+1,col));
-    initialState->setTile(row+1,col,temp);
-    return 1;
+    Node* downNode = new Node(*state);
+    int temp = downNode->getTile(row, col);
+    downNode->setTile(row, col, downNode->getTile(row+1,col));
+    downNode->setTile(row+1,col,temp);
+
+    // Check if new node is a duplicate
+    if(tree->isThereADuplicate(downNode)){
+        return nullptr;
+    }else{
+        state->setChildUp(downNode);
+        tree->incrementNodes();
+        return downNode;
+    }
    }
    else{
-    cout << "Cannot move Down!\n";
-    return 0;
+    std::cout << "Cannot move Down!\n";
+    return nullptr;
    }
 
 
 }
-bool Problem::moveLeft(){
+Node* Problem::moveLeft(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(col > 0){
-    int temp = initialState->getTile(row,col);
-    initialState->setTile(row,col,initialState->getTile(row,col-1));
-    initialState->setTile(row,col-1,temp);
-    return 1;
+     Node* leftNode = new Node(*state);
+     int temp = leftNode->getTile(row,col);
+     leftNode->setTile(row,col, leftNode->getTile(row,col-1));
+     leftNode->setTile(row, col-1, temp);
+     
+    // Check if new node is a duplicate
+    if(tree->isThereADuplicate(leftNode)){
+        return nullptr;
+    }else{
+        state->setChildUp(leftNode);
+        tree->incrementNodes();
+        return leftNode;
+    }
    }
    else{
-    cout << "Cannot move left!\n";
-    return 0;
+    std::cout << "Cannot move left!\n";
+    return nullptr;
    }
 
 
 }
-bool Problem::moveRight(){
+Node* Problem::moveRight(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(col < 2){
-    int temp = initialState->getTile(row,col);
-    initialState->setTile(row,col,initialState->getTile(row,col+1));
-    initialState->setTile(row,col+1,temp);
-    return 1;
+        Node* rightNode = new Node(*state);
+        int temp = rightNode->getTile(row,col);
+        rightNode->setTile(row,col, rightNode->getTile(row,col-1));
+        rightNode->setTile(row, col-1, temp);
+     
+        // Check if new node is a duplicate
+     if(tree->isThereADuplicate(rightNode)){
+        return nullptr;
+     }else{
+         state->setChildUp(rightNode);
+         tree->incrementNodes();
+         return rightNode;
+     }
    }
    else{
-    cout << "Cannot move right!\n";
-    return 0;
+    std::cout << "Cannot move right!\n";
+    return nullptr;
    }
 }
 
@@ -117,15 +155,6 @@ pair<int, int>Problem::findSpace(){
     return make_pair(-1, -1); //this will throw an error if we cannot find a space
  }
 
- void Problem::display(){
-    for(int i = 0; i < 3; i++){
-        for(int x = 0; x < 3; x++){
-            cout << initialState->getTile(i,x) << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
- }
 
 Problem::~Problem(){
 }
