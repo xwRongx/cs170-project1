@@ -7,6 +7,10 @@ Tree::Tree(Node* initial)
     nodeCount = 1;
 }
 
+Tree::~Tree()
+{
+}
+
 //setters
 void Tree::setRoot(Node* node){
     root = node;

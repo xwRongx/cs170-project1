@@ -35,9 +35,7 @@ public:
     void duplicateCheck();
 };
 
-Tree::~Tree()
-{
-}
+
 
 #endif
 

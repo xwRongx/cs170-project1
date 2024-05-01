@@ -48,8 +48,13 @@ Node::Node(Node* parentNode){
         }
     }
     //parentNode->childDown; change based on operator
-    //need to tree->incrementNodes(); where node is instantiated
+    //tree->incrementNodes(); is ran inside problem.cpp in each operator
     gn = parentNode->getGn()+1;
+}
+
+Node::~Node()
+{
+
 }
 
 //setters
@@ -136,20 +141,26 @@ vector Node::expand(){
   return queue of all new expanded nodes;
 }
 */
-vector<Node>* Node::expand(Node* parentNode, Problem* p){
-    vector<Node>* queue;
+queue<Node*>* Node::expand(Node* parentNode, Problem* p){
+    queue<Node*>* queue;
     
-    Node* upChild = new Node(parentNode);
-    Node* downChild = new Node(parentNode);
-    Node* leftChild = new Node(parentNode);
-    Node* rightChild = new Node(parentNode);
+    Node* upChild = p->moveUp(parentNode);
+    Node* downChild = p->moveDown(parentNode);
+    Node* leftChild = p->moveLeft(parentNode);
+    Node* rightChild = p->moveRight(parentNode);
 
-    //check if each operator returns true
-    //if(p->moveUp(upChild)){
-        
-        //if duplicate &&/or expanded, dont add to queue
-        //if new, unexpanded node, add to queue
-    //}
+    if(upChild != nullptr){
+        queue->push(upChild);
+    } 
+    if(downChild != nullptr){
+        queue->push(downChild);
+    }
+    if(leftChild != nullptr){
+        queue->push(leftChild);
+    }
+    if(rightChild != nullptr){
+        queue->push(rightChild);
+    }
     
     //if tree->duplicate, needs tree changes
     return queue;

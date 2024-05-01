@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Node.h"
 #include "Tree.h"
 #include <utility>
@@ -12,7 +13,7 @@ class Problem
 private:
     Node* initialState;
     Node* goalState;
-    Tree * tree;
+    Tree* tree;
 public:
     Problem();
     Problem(Node* init);
@@ -24,12 +25,13 @@ public:
     //getters
     Node* getInitialState();
     Node* getGoalState();
+    Tree* getTree();
     
     //Operators (move empty space up/down/left/right)
-    bool moveUp(Node* state);
-    bool moveDown(Node* state);
-    bool moveLeft(Node* state);
-    bool moveRight(Node* state);
+    Node* moveUp(Node* state);
+    Node* moveDown(Node* state);
+    Node* moveLeft(Node* state);
+    Node* moveRight(Node* state);
     pair<int, int>findSpace(); //Find 0 (empty space) in the 3 by 3 array to begin operators(up, down left, right) 
     void display();
 
