@@ -8,7 +8,7 @@ using namespace std;
 class AlgMisplaced : public AlgGeneric {
 private:
 public:
-    queue<Node*> queingFunction(queue<Node*>, queue<Node*>) override;
+    queue<Node*>* queingFunction(queue<Node*>*, queue<Node*>*) override;
     AlgMisplaced();
 };
 
