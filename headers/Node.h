@@ -3,11 +3,14 @@
 
 #include <queue>
 #include "Problem.h"
+#include "Display.h"
 using namespace std;
 
 class Node
 {
 private:
+        friend class Display;
+
     // represents board state as 2D array
     /* board[row][column]
           columns
