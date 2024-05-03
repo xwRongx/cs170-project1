@@ -3,6 +3,9 @@
 #include "../headers/Node.h"
 #include "../headers/Tree.h"
 #include "../headers/Problem.h"
+#include <iostream>
+
+using namespace std;
 
 
 //initializes goal state every time
@@ -143,7 +146,8 @@ vector Node::expand(){
 }
 */
 queue<Node*>* Node::expand(Problem* p){
-    queue<Node*>* queue;
+    queue<Node*> *queue;
+    
     
     Node* upChild = p->moveUp(this);
     Node* downChild = p->moveDown(this);
@@ -151,16 +155,20 @@ queue<Node*>* Node::expand(Problem* p){
     Node* rightChild = p->moveRight(this);
 
     if(upChild != nullptr){
-        queue->push(upChild);
+        cout << "Pushing Up\n";
+        queue.push(upChild);
     } 
     if(downChild != nullptr){
-        queue->push(downChild);
+        cout << "Pushing down\n";
+        queue.push(downChild);
     }
     if(leftChild != nullptr){
-        queue->push(leftChild);
+        cout << "Pushing left\n";
+        queue.push(leftChild);
     }
     if(rightChild != nullptr){
-        queue->push(rightChild);
+        cout << "Pushing right\n";
+        queue.push(rightChild);
     }
     
     //if tree->duplicate, needs tree changes

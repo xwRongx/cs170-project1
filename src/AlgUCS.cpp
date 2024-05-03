@@ -4,8 +4,13 @@
 
 queue<Node *>* AlgUCS::queuingFunction(queue<Node *> *curr_Queue, queue<Node *> *newNodes) {
     /*priority_queue<pair<int, int>, std::vector<pair<int,int>>, std::greater<pair<int,int>>> q;*/
-    /**/
     cout << "Inside algUCS!\n";
+
+      if (newNodes == nullptr && curr_Queue == nullptr) {
+        cout << "Error: Both queues are null pointers!\n";
+        return nullptr;
+    }
+   
     queue<Node *> *frontier = new queue<Node *>();
     priority_queue<pair<int, Node*>, vector<pair<int, Node*> >, greater<pair<int, Node*> > > priority;
     cout << "Inside algUCS!\n";
@@ -31,6 +36,7 @@ queue<Node *>* AlgUCS::queuingFunction(queue<Node *> *curr_Queue, queue<Node *> 
         priority.pop();
         cout << "Adding queue!\n";
     }
+    
     return frontier;
 }
 

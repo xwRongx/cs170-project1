@@ -7,7 +7,7 @@
 using namespace std;
 
 class AlgGeneric {
-private:
+
 public:
     virtual Node* GeneralSearch(Problem* p);
     virtual queue<Node*>* queuingFunction(queue<Node*>*, queue<Node*>*);

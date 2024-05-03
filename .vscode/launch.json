@@ -7,7 +7,7 @@
       "request": "launch",
       "args": [],
       "cwd": "/Users/daciarios/cs170-project1",
-      "program": "/Users/daciarios/cs170-project1/build/Debug/outDebug"
+      "program": "/Users/daciarios/cs170-project1/main"
     }
   ]
 }

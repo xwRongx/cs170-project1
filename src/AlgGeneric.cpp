@@ -21,7 +21,7 @@ Node *AlgGeneric::GeneralSearch(Problem* p) {
             // If queuingFunction returns nullptr, exit the loop
             break;
         }
-    
+
     }
     // no node found, no possible solution exists
     return nullptr;

@@ -40,18 +40,16 @@ int main() {
                "3 - A* with the Euclidean Distance heuristic\n"
                "0 - Exit\n";
         cin >> userChoice;
-        
-        Problem *p = new Problem;
+    
 
         //Display *d = new Display;
         switch (userChoice) {
             case 1:{
                 // Uniform Cost Search
                 // Convert 2D array to Node object
-                Node* initialNode = new Node(customBoard);
-                p->setInitialState(initialNode);
+                Node* initialNode = new Node(defaultBoard);
+                Problem *p = new Problem(initialNode);
                 AlgUCS ucs;
-                
                 Node* sol = ucs.GeneralSearch(p);
                 
                 if(sol !=nullptr)

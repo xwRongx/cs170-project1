@@ -1,4 +1,7 @@
 #include "../headers/Problem.h"
+#include "../headers/Display.h"
+#include "../headers/Node.h"
+#include "../headers/Tree.h"
 
 
 //hardcoded problem
@@ -43,7 +46,7 @@ Node* Problem::moveUp(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
-
+   cout << "Inside moveUp\n";
    if(row > 0){
     // Create new node
     Node* upNode = new Node(*state);
@@ -52,6 +55,12 @@ Node* Problem::moveUp(Node *state){
     upNode->setTile(row-1,col,temp);
 
     // Check if new node is a duplicate
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            cout << upNode->getTile(i,j) << " ";
+        }
+        cout << endl << endl;
+    }
     if(tree->isThereADuplicate(upNode)){
         return nullptr;
     }else{
@@ -64,24 +73,34 @@ Node* Problem::moveUp(Node *state){
     std::cout << "Cannot move Up!\n";
     return nullptr;
    }
-
+   
 
 }
 Node* Problem::moveDown(Node* state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
+   cout << "Inside moveDown\n";
    if(row < 2){
     Node* downNode = new Node(*state);
     int temp = downNode->getTile(row, col);
     downNode->setTile(row, col, downNode->getTile(row+1,col));
     downNode->setTile(row+1,col,temp);
-
+    cout << "move down\n";
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            cout << downNode->getTile(i,j) << " ";
+        }
+        cout << endl << endl;
+    }
     // Check if new node is a duplicate
+    cout << "before dup movedown\n";
     if(tree->isThereADuplicate(downNode)){
+        cout << "returning nullptr for tree dup\n";
         return nullptr;
     }else{
-        state->setChildUp(downNode);
+        cout << "returning downnode for tree dup\n";
+        state->setChildDown(downNode);
         tree->incrementNodes();
         return downNode;
     }
@@ -97,17 +116,23 @@ Node* Problem::moveLeft(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
+   cout << "Inside moveLeft\n";
    if(col > 0){
      Node* leftNode = new Node(*state);
      int temp = leftNode->getTile(row,col);
      leftNode->setTile(row,col, leftNode->getTile(row,col-1));
      leftNode->setTile(row, col-1, temp);
-     
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            cout << leftNode->getTile(i,j) << " ";
+        }
+        cout << endl << endl;
+    }
     // Check if new node is a duplicate
     if(tree->isThereADuplicate(leftNode)){
         return nullptr;
     }else{
-        state->setChildUp(leftNode);
+        state->setChildLeft(leftNode);
         tree->incrementNodes();
         return leftNode;
     }
@@ -123,23 +148,31 @@ Node* Problem::moveRight(Node *state){
    pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
+   cout << "Inside moveRight\n";
    if(col < 2){
         Node* rightNode = new Node(*state);
         int temp = rightNode->getTile(row,col);
-        rightNode->setTile(row,col, rightNode->getTile(row,col-1));
-        rightNode->setTile(row, col-1, temp);
-     
+        rightNode->setTile(row,col, rightNode->getTile(row,col+1));
+        rightNode->setTile(row, col+1, temp);
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                cout << rightNode->getTile(i,j) << " ";
+            }
+            cout << endl << endl;
+        }
         // Check if new node is a duplicate
      if(tree->isThereADuplicate(rightNode)){
         return nullptr;
      }else{
-         state->setChildUp(rightNode);
+         state->setChildRight(rightNode);
          tree->incrementNodes();
          return rightNode;
      }
    }
+
    else{
     std::cout << "Cannot move right!\n";
+
     return nullptr;
    }
 }
