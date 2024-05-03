@@ -3,12 +3,13 @@
 
 #include "AlgGeneric.h"
 
+
 using namespace std;
 
 class AlgEuclidean : public AlgGeneric {
 private:
 public:
-    queue<Node*>* queingFunction(queue<Node*>*, queue<Node*>*) override;
+    queue<Node*>* queuingFunction(queue<Node*>*, queue<Node*>*) override;
     AlgEuclidean();
 };
 

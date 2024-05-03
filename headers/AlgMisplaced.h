@@ -3,6 +3,7 @@
 
 #include "AlgGeneric.h"
 
+
 using namespace std;
 
 class AlgMisplaced : public AlgGeneric {
@@ -27,7 +28,7 @@ int numberMisplacedTiles(Node* node)
 
 
 public:
-    queue<Node*>* queingFunction(queue<Node*>*, queue<Node*>*) override;
+    queue<Node*>* queuingFunction(queue<Node*>*, queue<Node*>*) override;
     AlgMisplaced();
 };
 

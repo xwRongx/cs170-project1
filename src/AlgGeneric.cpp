@@ -1,4 +1,5 @@
 #include "../headers/AlgGeneric.h"
+#include <queue>
 
 using namespace std;
 
@@ -13,14 +14,13 @@ Node *AlgGeneric::GeneralSearch(Problem* p) {
         if(node->isEqual(p->getGoalState())) {
             return node;
         }
-
-        nodes = queingFunction(nodes, node->expand(p));
+        nodes = queuingFunction(nodes, node->expand(p));
     }
     // no node found, no possible solution exists
     return nullptr;
 }
 
-queue<Node *>* AlgGeneric::queingFunction(queue<Node *>*, queue<Node *>*) {
+queue<Node *>* AlgGeneric::queuingFunction(queue<Node *>*, queue<Node *>*) {
     return nullptr;
 }
 

@@ -7,8 +7,6 @@
 #include "headers/Node.h"
 #include "headers/Problem.h"
 #include "headers/Tree.h"
-
-
 using namespace std;
 
 int main() {
@@ -44,15 +42,27 @@ int main() {
         cin >> userChoice;
         
         Problem *p = new Problem;
+
         //Display *d = new Display;
         switch (userChoice) {
-            case 1:
+            case 1:{
                 // Uniform Cost Search
+                /*
+                AlgUCS ucs;
+                Node* sol = ucs.GeneralSearch(p);
+                if(sol !=nullptr)
+                    cout << "Solution found!\n";
+                else
+                    cout << "No Solution found!\n";
+                */
+            }
                 break;
             case 2:
+                cout << endl;
                 // A* with the Misplaced Tile heuristic
                 break;
             case 3:
+                cout << endl;
                 // A* with the Euclidean Distance heuristic
                 break;
             default:
