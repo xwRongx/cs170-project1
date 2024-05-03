@@ -41,7 +41,8 @@ int main() {
                "0 - Exit\n";
         cin >> userChoice;
     
-
+        //TO RUN: g++ -std=c++11  main.cpp src/problem.cpp src/node.cpp src/tree.cpp src/algGeneric.cpp src/algUCS.cpp -o main
+        //./main
         //Display *d = new Display;
         switch (userChoice) {
             case 1:{
