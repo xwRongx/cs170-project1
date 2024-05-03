@@ -21,15 +21,14 @@ int main() {
         switch (userChoice) {
             case 1:{
                 // Uniform Cost Search
-                Problem *p = new Problem;
+                /*
                 AlgUCS ucs;
                 Node* sol = ucs.GeneralSearch(p);
-                if(sol !=nullptr){
-                    cout << "Solution found!";
-                }
-                else{
-                    cout << "No Solution found!";
-                }
+                if(sol !=nullptr)
+                    cout << "Solution found!\n";
+                else
+                    cout << "No Solution found!\n";
+                */
             }
                 break;
             case 2:
