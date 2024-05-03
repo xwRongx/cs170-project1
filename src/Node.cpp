@@ -3,7 +3,6 @@
 #include "../headers/Node.h"
 #include "../headers/Tree.h"
 #include "../headers/Problem.h"
-#include <iostream>
 #include <queue>
 
 using namespace std;
@@ -43,6 +42,9 @@ Node::Node(int b[3][3]){
             board[i][j] = b[i][j];
         }
     }
+    gn = 0;
+    hn = 0;
+    fn = 0;
 }
 
 Node::Node(Node* parentNode){
@@ -55,6 +57,8 @@ Node::Node(Node* parentNode){
     //parentNode->childDown; change based on operator
     //tree->incrementNodes(); is ran inside problem.cpp in each operator
     gn = parentNode->getGn()+1;
+    hn = 0;
+    fn = 0;
 }
 
 Node::~Node()
@@ -83,7 +87,7 @@ void Node::setTile(int row, int col, int value){
 }
 
 void Node::setGn(int i){
-    gn = 1;
+    gn = i;
 }
 void Node::setHn(int i){
     hn = i;
