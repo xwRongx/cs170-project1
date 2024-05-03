@@ -42,7 +42,7 @@ Tree* Problem::getTree(){
 
 //Operators (move empty space up/down/left/right)
 Node* Problem::moveUp(Node *state){
-   pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
+   pair<int, int> location = findSpace(state); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(row > 0 && state->getTile(row - 1, col) != 0){
@@ -51,15 +51,15 @@ Node* Problem::moveUp(Node *state){
     int temp = upNode->getTile(row, col);
     upNode->setTile(row, col, upNode->getTile(row-1,col));
     upNode->setTile(row-1,col,temp);
-   
-     
+    upNode->path = upNode->path + " Up ";
+     /*
      cout <<"Up\n";
      for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             cout << upNode->getTile(i,j) << " ";
         }
         cout << endl << endl;
-    }
+    }*/
      //Check if new node is a duplicate
     if(tree->isThereADuplicate(upNode)){
         return nullptr;
@@ -76,7 +76,7 @@ Node* Problem::moveUp(Node *state){
 
 }
 Node* Problem::moveDown(Node* state){
-   pair<int, int> location = findSpace(); //Calls find space function to locate empty space (0 element)
+   pair<int, int> location = findSpace(state); //Calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(row < 2 && state->getTile(row + 1, col) != 0){
@@ -84,17 +84,17 @@ Node* Problem::moveDown(Node* state){
     int temp = downNode->getTile(row, col);
     downNode->setTile(row, col, downNode->getTile(row+1,col));
     downNode->setTile(row+1,col,temp);
+    downNode->path = downNode->path + " Down ";
     // Check if new node is a duplicate
-    
-    cout <<"Down\n";
+    /*
+    cout <<"Down after\n";
      for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             cout << downNode->getTile(i,j) << " ";
         }
         cout << endl << endl;
-    }
+    }*/
     
-
     if(tree->isThereADuplicate(downNode)){
         return nullptr;
     }else{
@@ -111,7 +111,7 @@ Node* Problem::moveDown(Node* state){
 
 }
 Node* Problem::moveLeft(Node *state){
-   pair<int, int> location = findSpace(); //Calls find space function to locate empty space (0 element)
+   pair<int, int> location = findSpace(state); //Calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(col > 0 && state->getTile(row , col-1) != 0){
@@ -119,15 +119,16 @@ Node* Problem::moveLeft(Node *state){
      int temp = leftNode->getTile(row,col);
      leftNode->setTile(row,col, leftNode->getTile(row,col-1));
      leftNode->setTile(row, col-1, temp);
-     
+     leftNode->path = leftNode->path + " Left ";
+     /*
      cout <<"Left\n";
       for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             cout << leftNode->getTile(i,j) << " ";
             }
         cout << endl << endl;
-    }
-
+         }
+    */
     // Check if new node is a duplicate
     if(tree->isThereADuplicate(leftNode)){
         return nullptr;
@@ -144,22 +145,23 @@ Node* Problem::moveLeft(Node *state){
 
 }
 Node* Problem::moveRight(Node *state){
-   pair<int, int> location = findSpace(); //calls find space function to locate empty space (0 element)
+   pair<int, int> location = findSpace(state); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
    if(col < 2 && state->getTile(row, col+1) != 0){
         Node* rightNode = new Node(*state);
         int temp = rightNode->getTile(row,col);
-        rightNode->setTile(row,col, rightNode->getTile(row,col+1));
+        rightNode->setTile(row,col, rightNode->getTile(row,col+1)); 
         rightNode->setTile(row, col+1, temp);
-        
+        rightNode->path = rightNode->path + " Right ";
+        /*
         cout <<"Right\n";
          for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             cout << rightNode->getTile(i,j) << " ";
         }
         cout << endl << endl;
-        } 
+        } */
         // Check if new node is a duplicate
      if(tree->isThereADuplicate(rightNode)){
         return nullptr;
@@ -177,10 +179,10 @@ Node* Problem::moveRight(Node *state){
    }
 }
 
-pair<int, int>Problem::findSpace(){
+pair<int, int>Problem::findSpace(Node *state){
     for(int i = 0; i < 3; i++){
         for(int x = 0; x < 3; x++){
-            if(initialState->getTile(i,x) == 0){
+            if(state->getTile(i,x) == 0){
                 return make_pair(i, x); //return pair as row and column
             }
         }

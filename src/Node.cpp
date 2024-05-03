@@ -29,6 +29,7 @@ Node::Node()
     childRight = nullptr;
     childUp = nullptr; 
     childDown = nullptr;
+    path = "";
 
     gn = -1;
     hn = -1;
@@ -152,7 +153,7 @@ vector Node::expand(){
 */
 queue<Node*>* Node::expand(Problem* p){
     queue<Node*> *queue = new ::queue<Node*>; //fixed error
-
+     /*
      cout <<"Initial\n";
          for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
@@ -160,7 +161,7 @@ queue<Node*>* Node::expand(Problem* p){
         }
         cout << endl << endl;
         } 
-    
+    */
     Node* upChild = p->moveUp(this);
     Node* downChild = p->moveDown(this);
     Node* leftChild = p->moveLeft(this);
