@@ -96,18 +96,15 @@ void Tree::updateChildPointer(Node* existingNode, Node* duplicateNode) {
 // Searches the entire tree to find any duplicate ancestors
 bool Tree::searchForDuplicate(Node* currentNode, Node* newNode) {
     // Base case: the current node is nullptr
-     cout << "inside search for dup\n";
     if (currentNode == nullptr) {
         return false;
     }
     // Check if the currentNode state is equal to newNode state
     if (currentNode->isEqual(newNode)) { // If a duplicate is found
-        cout << "Update Child Pointer\n";
         updateChildPointer(currentNode, newNode);
         return true;
     }
     // Search in all four directions
-     cout << "returning\n";
     return searchForDuplicate(currentNode->getChildLeft(), newNode) ||
            searchForDuplicate(currentNode->getChildRight(), newNode) ||
            searchForDuplicate(currentNode->getChildUp(), newNode) ||
@@ -115,8 +112,6 @@ bool Tree::searchForDuplicate(Node* currentNode, Node* newNode) {
 }
 
 bool Tree::isThereADuplicate(Node* newNode) {
-    cout << "inside is there a dup\n";
-
     return searchForDuplicate(root, newNode); // search from root node to the new node
 }
 

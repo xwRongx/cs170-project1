@@ -4,6 +4,7 @@
 #include "../headers/Tree.h"
 #include "../headers/Problem.h"
 #include <iostream>
+#include <queue>
 
 using namespace std;
 
@@ -146,29 +147,26 @@ vector Node::expand(){
 }
 */
 queue<Node*>* Node::expand(Problem* p){
-    queue<Node*> *queue;
-    
-    
+    queue<Node*> *queue = new ::queue<Node*>; //fixed error
+
     Node* upChild = p->moveUp(this);
     Node* downChild = p->moveDown(this);
     Node* leftChild = p->moveLeft(this);
     Node* rightChild = p->moveRight(this);
 
     if(upChild != nullptr){
-        cout << "Pushing Up\n";
-        queue.push(upChild);
+  
+        queue->push(upChild);
     } 
     if(downChild != nullptr){
-        cout << "Pushing down\n";
-        queue.push(downChild);
+
+        queue->push(downChild);
     }
     if(leftChild != nullptr){
-        cout << "Pushing left\n";
-        queue.push(leftChild);
+        queue->push(leftChild);
     }
     if(rightChild != nullptr){
-        cout << "Pushing right\n";
-        queue.push(rightChild);
+        queue->push(rightChild);
     }
     
     //if tree->duplicate, needs tree changes
