@@ -149,6 +149,14 @@ vector Node::expand(){
 queue<Node*>* Node::expand(Problem* p){
     queue<Node*> *queue = new ::queue<Node*>; //fixed error
 
+     cout <<"Initial\n";
+         for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            cout << this->getTile(i,j) << " ";
+        }
+        cout << endl << endl;
+        } 
+    
     Node* upChild = p->moveUp(this);
     Node* downChild = p->moveDown(this);
     Node* leftChild = p->moveLeft(this);
@@ -170,5 +178,6 @@ queue<Node*>* Node::expand(Problem* p){
     }
     
     //if tree->duplicate, needs tree changes
+    cout << "Expanded\n";
     return queue;
 }
