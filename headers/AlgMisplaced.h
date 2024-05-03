@@ -8,7 +8,7 @@ using namespace std;
 
 class AlgMisplaced : public AlgGeneric {
 private:
-bool compareNodeByGn(Node* a, Node* b) {
+bool compareNodeByFn(Node* a, Node* b) {
     return a->getFn() > b->getFn();
 }
 
