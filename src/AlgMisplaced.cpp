@@ -1,6 +1,6 @@
 #include "../headers/AlgMisplaced.h"
-queue<Node *>* AlgMisplaced::queingFunction(queue<Node*> *q1, queue<Node*> *q2) {
-    priority_queue<Node*, vector<Node*>, decltype(&compareNodeByGn)> pq1(compareNodeByGn), pq2(compareNodeByGn);
+queue<Node *>* AlgMisplaced::queuingFunction(queue<Node*> *q1, queue<Node*> *q2) {
+    priority_queue<Node*, vector<Node*>, decltype(&compareNodeByFn)> pq1(compareNodeByFn), pq2(compareNodeByFn);
     queue<Node *> *mergedQueue = new queue<Node *>();
 
     while (!q1->empty()) {
@@ -16,7 +16,7 @@ queue<Node *>* AlgMisplaced::queingFunction(queue<Node*> *q1, queue<Node*> *q2) 
     {
         if (!pq1.empty() && !pq2.empty()) 
         {
-            if (!compareNodeByGn(pq1.top(), pq2.top())) 
+            if (!compareNodeByFn(pq1.top(), pq2.top())) 
             {
                 mergedQueue->push(pq1.top());
                 pq1.pop();
@@ -40,6 +40,7 @@ queue<Node *>* AlgMisplaced::queingFunction(queue<Node*> *q1, queue<Node*> *q2) 
     }
 
     return mergedQueue;
+}
 AlgMisplaced::AlgMisplaced() {
 
 }
