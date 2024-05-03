@@ -1,6 +1,12 @@
 #include <iostream>
+#include "headers/AlgEuclidean.h"
+#include "headers/AlgGeneric.h"
+#include "headers/AlgMisplaced.h"
+#include "headers/AlgUCS.h"
+#include "headers/Display.h"
+#include "headers/Node.h"
 #include "headers/Problem.h"
-#include "headers/AlgUCS.h" 
+#include "headers/Tree.h"
 
 using namespace std;
 
@@ -21,14 +27,25 @@ int main() {
         switch (userChoice) {
             case 1:{
                 // Uniform Cost Search
-                /*
+                cout << "Enter the initial state of the puzzle (use 0 for the blank tile):\n";
+                int puzzle[3][3];
+                for (int i = 0; i < 3; ++i) {
+                    for (int j = 0; j < 3; ++j) {
+                        cin >> puzzle[i][j];
+                    }
+                }
+                // Convert 2D array to Node object
+                Node* initialNode = new Node(puzzle);
+                p->setInitialState(initialNode);
                 AlgUCS ucs;
+                
                 Node* sol = ucs.GeneralSearch(p);
+                
                 if(sol !=nullptr)
                     cout << "Solution found!\n";
                 else
                     cout << "No Solution found!\n";
-                */
+                
             }
                 break;
             case 2:

@@ -2,6 +2,8 @@
 #define ALGUCS
 
 #include "AlgGeneric.h"
+#include <utility>
+#include <functional>
 
 using namespace std;
 

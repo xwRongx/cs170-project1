@@ -4,6 +4,7 @@
 #include "../headers/Tree.h"
 #include "../headers/Problem.h"
 
+
 //initializes goal state every time
 Node::Node()
 {

@@ -2,10 +2,13 @@
 #include "../headers/AlgGeneric.h"
 #include <queue>
 
-queue<Node *>* AlgUCS::queuingFunction(queue<Node *>* curr_Queue, queue<Node *>* newNodes) {
+queue<Node *>* AlgUCS::queuingFunction(queue<Node *> *curr_Queue, queue<Node *> *newNodes) {
     /*priority_queue<pair<int, int>, std::vector<pair<int,int>>, std::greater<pair<int,int>>> q;*/
+    /**/
+    cout << "Inside algUCS!\n";
+    queue<Node *> *frontier = new queue<Node *>();
     priority_queue<pair<int, Node*>, vector<pair<int, Node*> >, greater<pair<int, Node*> > > priority;
-
+    cout << "Inside algUCS!\n";
     while(!newNodes->empty()){
         Node * temp = newNodes->front(); //setting temp to front of queue, doesn't affect expanded nodes
         newNodes->pop(); //popping out of queue
@@ -17,16 +20,19 @@ queue<Node *>* AlgUCS::queuingFunction(queue<Node *>* curr_Queue, queue<Node *>*
         curr_Queue->pop();
         int search_cost = temp->getGn();
         priority.push(make_pair(search_cost, temp));
+        cout << "Emptying queue!\n";
+    }
+    if (priority.empty()) {
+        return nullptr;
     }
 
     while(!priority.empty()){
-        curr_Queue->push(priority.top().second);
+        frontier->push(priority.top().second);
         priority.pop();
+        cout << "Adding queue!\n";
     }
-    return curr_Queue;
+    return frontier;
 }
 
 AlgUCS::AlgUCS() {
-
-
 }
