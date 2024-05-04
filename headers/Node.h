@@ -66,7 +66,7 @@ public:
     int getGn();
     int getHn();
     int getFn();
-    string path = "";
+    string path = ""; //stores the paths taken for each node
 
     //checks if nodes have same board state
     bool isEqual(Node* n);

@@ -117,6 +117,8 @@
     "ALGEUCLIDEAN",
     "ALGGENERIC",
     "ALGMISPLACED",
-    "ALGUCS"
+    "ALGUCS",
+    "customboard",
+    "myarr"
   ]
 }
