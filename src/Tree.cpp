@@ -72,10 +72,6 @@ Node* Tree::getNextChild(Node* currentNode){
     return nullptr; // No child node found that is not a duplicate
 }
 
-void Tree::incrementNodeCount(){
-    nodeCount++;
-}
-
 /* Updates the parent's child pointer to point to the duplicate node
    to prevent the exploring of that duplicate state again  */
 void Tree::updateChildPointer(Node* existingNode, Node* duplicateNode) {
