@@ -3,7 +3,6 @@
 #include "../headers/Node.h"
 #include "../headers/Tree.h"
 #include "../headers/Problem.h"
-#include <iostream>
 #include <queue>
 
 using namespace std;
@@ -25,24 +24,21 @@ Node::Node()
             }
         }
     }
-    parent = nullptr;
-    childLeft = nullptr;
-    childRight = nullptr;
-    childUp = nullptr; 
-    childDown = nullptr;
-
     gn = -1;
     hn = -1;
     fn = -1;
 }
 
 //initialize specific board
-Node::Node(int b[3][3]){
+Node::Node(array<array<int, 3>, 3> b){
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             board[i][j] = b[i][j];
         }
     }
+    gn = 0;
+    hn = 0;
+    fn = 0;
 }
 
 Node::Node(Node* parentNode){
@@ -55,6 +51,8 @@ Node::Node(Node* parentNode){
     //parentNode->childDown; change based on operator
     //tree->incrementNodes(); is ran inside problem.cpp in each operator
     gn = parentNode->getGn()+1;
+    hn = 0;
+    fn = 0;
 }
 
 Node::~Node()
@@ -83,7 +81,7 @@ void Node::setTile(int row, int col, int value){
 }
 
 void Node::setGn(int i){
-    gn = 1;
+    gn = i;
 }
 void Node::setHn(int i){
     hn = i;
@@ -148,7 +146,15 @@ vector Node::expand(){
 */
 queue<Node*>* Node::expand(Problem* p){
     queue<Node*> *queue = new ::queue<Node*>; //fixed error
-
+     /*
+     cout <<"Initial\n";
+         for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            cout << this->getTile(i,j) << " ";
+        }
+        cout << endl << endl;
+        } 
+    */
     Node* upChild = p->moveUp(this);
     Node* downChild = p->moveDown(this);
     Node* leftChild = p->moveLeft(this);

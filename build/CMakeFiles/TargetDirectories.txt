@@ -1,3 +1,0 @@
-C:/Users/46xxr/OneDrive/Documents/240505cs170project1/cs170-project1/build/CMakeFiles/EightPuzzle.dir
-C:/Users/46xxr/OneDrive/Documents/240505cs170project1/cs170-project1/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/46xxr/OneDrive/Documents/240505cs170project1/cs170-project1/build/CMakeFiles/ZERO_CHECK.dir

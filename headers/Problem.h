@@ -11,9 +11,9 @@ using namespace std;
 class Problem
 {
 private:
-    Node* initialState;
-    Node* goalState;
-    Tree* tree;
+    Node* initialState = nullptr;
+    Node* goalState = nullptr;
+    Tree* tree = nullptr;
 public:
     Problem();
     Problem(Node* init);
@@ -32,7 +32,7 @@ public:
     Node* moveDown(Node* state);
     Node* moveLeft(Node* state);
     Node* moveRight(Node* state);
-    pair<int, int>findSpace(); //Find 0 (empty space) in the 3 by 3 array to begin operators(up, down left, right) 
+    pair<int, int>findSpace(Node *state); //Find 0 (empty space) in the 3 by 3 array to begin operators(up, down left, right) 
     void display();
 
     ~Problem();
