@@ -13,7 +13,7 @@ int main() {
     int userChoice = -1;
     int group = 16;
     cout << "Welcome to group 16's 8 puzzle solver" << endl;
-    /*
+
     cout << "Type 1 to use default puzzle and Type 2 to enter own puzzle" << endl;
     //put default puzzle here
     int defaultBoard[3][3] = {{1, 0, 3}, {4,2,6},{7,5,8}};
@@ -35,20 +35,6 @@ int main() {
     }
 
     cout << endl << endl;
-    */
-    int customboard[3][3];
-    std::cout << "Enter the first row, use space or tabs between numbers:";
-    for(int x = 0; x < 3;x++){
-        std::cin >> customboard[0][x];
-    }
-    std::cout << "Enter the second row, use space or tabs between numbers:";
-      for(int x = 0; x < 3;x++){
-        std::cin >> customboard[1][x];
-    }
-    std::cout << "Enter the third row, use space or tabs between numbers:";
-      for(int x = 0; x < 3;x++){
-        std::cin >> customboard[2][x];
-      }
     while(userChoice != 0) {
         cout << "Type the number of the desired algorithm to use: \n"
                "1 - Uniform Cost Search\n"
@@ -64,7 +50,7 @@ int main() {
             case 1:{
                 // Uniform Cost Search
                 // Convert 2D array to Node object
-                Node* initialNode = new Node(customboard);
+                Node* initialNode = new Node(customBoard);
                 Problem *p = new Problem(initialNode);
                 AlgUCS ucs;
                 Node* sol = ucs.GeneralSearch(p);
@@ -75,7 +61,7 @@ int main() {
                     string path = sol->path;
                      for(int i = 0; i < 3; i++){
                         for(int j = 0; j < 3; j++){
-                            cout << customboard[i][j] << " ";
+                            cout << customBoard[i][j] << " ";
                             }
                             cout << endl << endl;
                         }
