@@ -18,7 +18,7 @@ queue<Node *>* AlgEuclidean::queuingFunction(queue<Node *> *curr_Queue, queue<No
         newNodes->pop();
 
         int Gn = temp->getGn();
-        double Hn = calculateEuclideanDistance(*temp, *temp); // Update Hn using Euclidean distance
+        double Hn = calculateEuclideanDistance(temp); // Update Hn using Euclidean distance
         double search_cost = Gn + Hn; // maybe format the decimal places of Hn and search cost
         priority.push(make_pair(search_cost, temp));
     }
@@ -28,7 +28,7 @@ queue<Node *>* AlgEuclidean::queuingFunction(queue<Node *> *curr_Queue, queue<No
         curr_Queue->pop();
 
         int Gn = temp->getGn();
-        double Hn = calculateEuclideanDistance(*temp, *temp); // Update Hn using Euclidean distance
+        double Hn = calculateEuclideanDistance(temp); // Update Hn using Euclidean distance
         double search_cost = Gn + Hn; // maybe format the decimal places of Hn and search cost
         
         priority.push(make_pair(search_cost, temp));
@@ -45,6 +45,34 @@ queue<Node *>* AlgEuclidean::queuingFunction(queue<Node *> *curr_Queue, queue<No
     return frontier;
 }
 
-AlgEuclidean::AlgEuclidean(Node& _goalNode) : goalNode(_goalNode) {
-    // Constructor implementation
+double AlgEuclidean::calculateEuclideanDistance(Node* node) {
+    int currentRow = -1;
+    int currentCol = -1;
+    int goalRow = -1;
+    int goalCol = -1;
+    
+    // Find the positions of the current node and the goal node
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (node->getTile(i, j) == 0) {
+                currentRow = i;
+                currentCol = j;
+            }
+            if (goalState[i][j] == 0) {
+                goalRow = i;
+                goalCol = j;
+            }
+        }
+    }
+
+    // Calculate Euclidean distance
+    int dRow = currentRow - goalRow;
+    int dCol = currentCol - goalCol;
+    double squaredDistance = (dRow * dRow) + (dCol * dCol);
+    double distance = sqrt(squaredDistance);
+    
+    return distance;
+}
+
+AlgEuclidean::AlgEuclidean() {
 }
