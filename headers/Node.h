@@ -9,7 +9,7 @@ using namespace std;
 class Node
 {
 private:
-        friend class Display;
+    friend class Display;
 
     // represents board state as 2D array
     /* board[row][column]
@@ -23,11 +23,11 @@ private:
     int board[3][3];
 
     //relational nodes in tree
-    Node* parent;
-    Node* childLeft; //if empty is moved left
-    Node* childRight; //if empty is moved right
-    Node* childUp; //if empty is moved up
-    Node* childDown; //if empty is moved 
+    Node* parent = nullptr;
+    Node* childLeft = nullptr; //if empty is moved left
+    Node* childRight = nullptr; //if empty is moved right
+    Node* childUp = nullptr; //if empty is moved up
+    Node* childDown = nullptr; //if empty is moved
     
     //information for algorithms 
     int gn; //g(n), # steps from initial state 
@@ -37,8 +37,8 @@ private:
 public:
     //Node() no args makes goal state
     Node();
-    //Node(int b[3][3]) takes a 2d array and makes it a node
-    Node(int b[3][3]);
+    //Node(array<array<int, 3>, 3>) takes a 2d array and makes it a node
+    Node(array<array<int, 3>, 3> b);
     //takes parent node and duplicates that board state, sets parent ptr, increments gn
     Node(Node* parentNode);
     ~Node();

@@ -5,8 +5,13 @@
 
 //hardcoded problem
 Problem::Problem(){
-    initialState = new Node(Node()); //change hardcode to test or something
+    array<array<int, 3>, 3> state{};
+    state[0] = {0, 1, 2};
+    state[1] = {4, 5, 3};
+    state[2] = {7, 8, 6};
+    initialState = new Node(state); //change hardcode to test or something
     goalState = new Node(Node());
+    tree = new Tree(Tree(initialState));
 }
 //user input initialState problem
 Problem::Problem(Node* init)
@@ -14,7 +19,6 @@ Problem::Problem(Node* init)
     //create initial node from user input (display class?), then initialize tree with inital node as root
     initialState = init;
     goalState = new Node(Node());
-
     tree = new Tree(Tree(initialState));
 }
 
@@ -47,7 +51,7 @@ Node* Problem::moveUp(Node *state){
    int col= location.second;
    if(row > 0 && state->getTile(row - 1, col) != 0){
     //Create new node
-    Node* upNode = new Node(*state);
+    Node* upNode = new Node(state);
     int temp = upNode->getTile(row, col);
     upNode->setTile(row, col, upNode->getTile(row-1,col));
     upNode->setTile(row-1,col,temp);
@@ -80,7 +84,7 @@ Node* Problem::moveDown(Node* state){
    int row = location.first;
    int col= location.second;
    if(row < 2 && state->getTile(row + 1, col) != 0){
-    Node* downNode = new Node(*state);
+    Node* downNode = new Node(state);
     int temp = downNode->getTile(row, col);
     downNode->setTile(row, col, downNode->getTile(row+1,col));
     downNode->setTile(row+1,col,temp);
@@ -115,7 +119,7 @@ Node* Problem::moveLeft(Node *state){
    int row = location.first;
    int col= location.second;
    if(col > 0 && state->getTile(row , col-1) != 0){
-     Node* leftNode = new Node(*state);
+     Node* leftNode = new Node(state);
      int temp = leftNode->getTile(row,col);
      leftNode->setTile(row,col, leftNode->getTile(row,col-1));
      leftNode->setTile(row, col-1, temp);
@@ -149,7 +153,7 @@ Node* Problem::moveRight(Node *state){
    int row = location.first;
    int col= location.second;
    if(col < 2 && state->getTile(row, col+1) != 0){
-        Node* rightNode = new Node(*state);
+        Node* rightNode = new Node(state);
         int temp = rightNode->getTile(row,col);
         rightNode->setTile(row,col, rightNode->getTile(row,col+1)); 
         rightNode->setTile(row, col+1, temp);
@@ -179,7 +183,7 @@ Node* Problem::moveRight(Node *state){
    }
 }
 
-pair<int, int>Problem::findSpace(Node *state){
+pair<int, int>Problem::findSpace(Node* state){
     for(int i = 0; i < 3; i++){
         for(int x = 0; x < 3; x++){
             if(state->getTile(i,x) == 0){

@@ -1,110 +1,100 @@
 #include <iostream>
-#include "headers/AlgEuclidean.h"
-#include "headers/AlgGeneric.h"
-#include "headers/AlgMisplaced.h"
+#include "headers/Problem.h"
 #include "headers/AlgUCS.h"
 #include "headers/Display.h"
-#include "headers/Node.h"
-#include "headers/Problem.h"
-#include "headers/Tree.h"
+
+array<array<int, 3>, 3> createCustomNode();
+
 using namespace std;
 
-int main() {
-    int userChoice = -1;
-    int group = 16;
-    cout << "Welcome to group 16's 8 puzzle solver" << endl;
-    /*
-    cout << "Type 1 to use default puzzle and Type 2 to enter own puzzle" << endl;
-    //put default puzzle here
-    int defaultBoard[3][3] = {{1, 0, 3}, {4,2,6},{7,5,8}};
-    int customBoard[3][3];
-    cin >> userChoice;
-    if(userChoice == 2)
-    {
-        int currNum;
-        cout << "Enter your puzzle one by one, 0 is the blank space" << endl;
-        for(int i = 0; i < 3; i++)
-        {
-            for(int j = 0; j < 3; j++)
-            {
-                cout << "Position: Row: " << i << "x Columns: " << j << ":";
-                cin >> userChoice;
-                customBoard[i][j] = userChoice;
-            }
-        }
-    }
 
-    cout << endl << endl;
-    */
-    int customboard[3][3];
-    std::cout << "Enter the first row, use space or tabs between numbers:";
-    for(int x = 0; x < 3;x++){
-        std::cin >> customboard[0][x];
-    }
-    std::cout << "Enter the second row, use space or tabs between numbers:";
-      for(int x = 0; x < 3;x++){
-        std::cin >> customboard[1][x];
-    }
-    std::cout << "Enter the third row, use space or tabs between numbers:";
-      for(int x = 0; x < 3;x++){
-        std::cin >> customboard[2][x];
-      }
-    while(userChoice != 0) {
+
+int main() {
+    auto *p = new Problem;
+    auto *d = new Display;
+
+    cout << "Welcome to group 16's 8 puzzle solver" << endl;
+
+    int userChoiceState;
+        cout << "Type the number of the desired algorithm to use: \n"
+                "1 - Default Initial State\n"
+                "2 - Custom Initial State\n"
+                "0 - Exit\n";
+        cin >> userChoiceState;
+        switch (userChoiceState) {
+            case 1:
+                // Default Initial State
+                break;
+            case 2: {
+                // Custom Initial State
+                auto node = new Node(createCustomNode());
+                p->setInitialState(node);
+                break;
+            }
+            default:
+                break;
+        }
+
+    int userChoiceAlg = -1;
+    while(userChoiceAlg != 0) {
         cout << "Type the number of the desired algorithm to use: \n"
                "1 - Uniform Cost Search\n"
                "2 - A* with the Misplaced Tile heuristic\n"
                "3 - A* with the Euclidean Distance heuristic\n"
                "0 - Exit\n";
-        cin >> userChoice;
-    
-        //TO RUN: g++ -std=c++11  main.cpp src/problem.cpp src/node.cpp src/tree.cpp src/algGeneric.cpp src/algUCS.cpp -o main
-        //./main
-        //Display *d = new Display;
-        switch (userChoice) {
+        cin >> userChoiceAlg;
+
+        switch (userChoiceAlg) {
             case 1:{
                 // Uniform Cost Search
-                // Convert 2D array to Node object
-                Node* initialNode = new Node(customboard);
-                Problem *p = new Problem(initialNode);
                 AlgUCS ucs;
-                Node* sol = ucs.GeneralSearch(p);
-                int gn = sol->getGn();
-                
-                if(sol !=nullptr){
-                    cout << "Solution found!\n";
-                    string path = sol->path;
-                     for(int i = 0; i < 3; i++){
-                        for(int j = 0; j < 3; j++){
-                            cout << customboard[i][j] << " ";
-                            }
-                            cout << endl << endl;
-                        }
-                    cout << "The path taken was: " << path << endl;
-                    cout << "G(n) = " << gn << endl;
+                d->setChoice(1);
+                Node* solution = ucs.GeneralSearch(p);
+                if(solution !=nullptr) {
+                    cout << "Solution found!\n\n";
+
+                    cout << "Expanding state\n";
+                    d->displayNode(p->getInitialState());
+                    cout << endl;
+
+                    d->printSolutionPath(solution);
+                    cout << "G(n) = " << solution->getGn() << endl << endl;
                 }
                 else
                     cout << "No Solution found!\n";
-                
             }
                 break;
             case 2:
+                d->setChoice(2);
                 cout << endl;
                 // A* with the Misplaced Tile heuristic
                 break;
             case 3:
+                d->setChoice(3);
                 cout << endl;
                 // A* with the Euclidean Distance heuristic
                 break;
             default:
-                printf("Sorry, %d is not an option, select again.\n", userChoice);
+                printf("Sorry, %d is not an option, select again.\n", userChoiceAlg);
                 break;
         }
     }
-    int total_nodes = 0;
-    int max_nodes_queue = 0;
-    int depth = 0;
-    cout << "END\nTo solve this problem, the search expanded " << total_nodes << " nodes." << endl;
-    cout << "The maximum number of nodes in the queue at any one times is:  " << total_nodes << " nodes." << endl;
-    cout << "The depth of the goal node is: " << depth << endl;
+}
 
+
+array<array<int, 3>, 3> createCustomNode(){
+    array<array<int, 3>, 3> myarr{};
+    std::cout << "Enter the first row, use space or tabs between numbers:";
+    for(int x = 0; x < 3;x++){
+        std::cin >> myarr[0][x];
+    }
+    std::cout << "Enter the second row, use space or tabs between numbers:";
+    for(int x = 0; x < 3;x++){
+        std::cin >> myarr[1][x];
+    }
+    std::cout << "Enter the third row, use space or tabs between numbers:";
+    for(int x = 0; x < 3;x++){
+        std::cin >> myarr[2][x];
+    }
+    return myarr;
 }

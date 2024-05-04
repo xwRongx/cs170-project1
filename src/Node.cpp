@@ -1,5 +1,3 @@
-
-
 #include "../headers/Node.h"
 #include "../headers/Tree.h"
 #include "../headers/Problem.h"
@@ -24,20 +22,13 @@ Node::Node()
             }
         }
     }
-    parent = nullptr;
-    childLeft = nullptr;
-    childRight = nullptr;
-    childUp = nullptr; 
-    childDown = nullptr;
-    path = "";
-
     gn = -1;
     hn = -1;
     fn = -1;
 }
 
 //initialize specific board
-Node::Node(int b[3][3]){
+Node::Node(array<array<int, 3>, 3> b){
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             board[i][j] = b[i][j];
@@ -168,11 +159,9 @@ queue<Node*>* Node::expand(Problem* p){
     Node* rightChild = p->moveRight(this);
 
     if(upChild != nullptr){
-  
         queue->push(upChild);
     } 
     if(downChild != nullptr){
-
         queue->push(downChild);
     }
     if(leftChild != nullptr){
@@ -181,8 +170,6 @@ queue<Node*>* Node::expand(Problem* p){
     if(rightChild != nullptr){
         queue->push(rightChild);
     }
-    
     //if tree->duplicate, needs tree changes
-    cout << "Expanded\n";
     return queue;
 }
