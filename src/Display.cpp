@@ -1,7 +1,5 @@
 #include "../headers/Display.h"
-#include "../headers/Node.h"
 #include "../headers/Problem.h"
-#include "../headers/Node.h"
 #include "../headers/Tree.h"
 
 Display::Display()

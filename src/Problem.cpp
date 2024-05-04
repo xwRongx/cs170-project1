@@ -5,8 +5,13 @@
 
 //hardcoded problem
 Problem::Problem(){
-    initialState = new Node(Node()); //change hardcode to test or something
+    array<array<int, 3>, 3> state{};
+    state[0] = {0, 1, 2};
+    state[1] = {4, 5, 3};
+    state[2] = {7, 8, 6};
+    initialState = new Node(state); //change hardcode to test or something
     goalState = new Node(Node());
+    tree = new Tree(Tree(initialState));
 }
 //user input initialState problem
 Problem::Problem(Node* init)
@@ -14,7 +19,6 @@ Problem::Problem(Node* init)
     //create initial node from user input (display class?), then initialize tree with inital node as root
     initialState = init;
     goalState = new Node(Node());
-
     tree = new Tree(Tree(initialState));
 }
 

@@ -23,11 +23,11 @@ private:
     int board[3][3];
 
     //relational nodes in tree
-    Node* parent;
-    Node* childLeft; //if empty is moved left
-    Node* childRight; //if empty is moved right
-    Node* childUp; //if empty is moved up
-    Node* childDown; //if empty is moved 
+    Node* parent = nullptr;
+    Node* childLeft = nullptr; //if empty is moved left
+    Node* childRight = nullptr; //if empty is moved right
+    Node* childUp = nullptr; //if empty is moved up
+    Node* childDown = nullptr; //if empty is moved
     
     //information for algorithms 
     int gn; //g(n), # steps from initial state 

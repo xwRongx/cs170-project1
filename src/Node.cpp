@@ -24,13 +24,6 @@ Node::Node()
             }
         }
     }
-    parent = nullptr;
-    childLeft = nullptr;
-    childRight = nullptr;
-    childUp = nullptr; 
-    childDown = nullptr;
-    path = "";
-
     gn = -1;
     hn = -1;
     fn = -1;
@@ -153,6 +146,9 @@ vector Node::expand(){
 */
 queue<Node*>* Node::expand(Problem* p){
     queue<Node*> *queue = new ::queue<Node*>; //fixed error
+    Display *d = new Display;
+    cout << "Expanding node: \n";
+    d->displayNode(queue->front());
      /*
      cout <<"Initial\n";
          for(int i = 0; i < 3; i++){
@@ -183,6 +179,5 @@ queue<Node*>* Node::expand(Problem* p){
     }
     
     //if tree->duplicate, needs tree changes
-    cout << "Expanded\n";
     return queue;
 }
