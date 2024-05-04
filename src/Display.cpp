@@ -2,8 +2,9 @@
 #include "../headers/Problem.h"
 #include "../headers/Tree.h"
 
-Display::Display()
-{}
+Display::Display(){
+    int choice = -1;
+}
 
 void Display::displayNode(Node* ptr)
 {
@@ -15,6 +16,9 @@ void Display::displayNode(Node* ptr)
     }
 }
 
+void Display::setChoice(int alg_choice){
+    choice = alg_choice;
+}
 
 
 
@@ -25,8 +29,13 @@ void Display::printSolutionPath(Node* ptr)
         return;
     }
     printSolutionPath(ptr->parent);
-    cout << "The best state to expand with g(n) = " << ptr->getGn() << " and h(n) = " << ptr->getHn() << " is..." << endl;
+    if(choice == 2)
+        cout << "The best state to expand with g(n) = " << ptr->getGn() << " and h(n) = " << ptr->getHn() << " is..." << endl;
+    else if(choice == 1)
+        cout << "The best state to expand with g(n) = " << ptr->getGn() << " is..." << endl;
+    
     cout << "Expanding this state... \n";
+    
     displayNode(ptr);
     cout << endl;
 }
@@ -37,9 +46,13 @@ void Display::printEuclideanSolutionPath(Node* ptr)
     {
         return;
     }
-    printSolutionPath(ptr->parent);
-    cout << "The best state to expand with g(n) = " << ptr->getGn() << " and h(n) = " << ptr->getHnEuclidean() << " is..." << endl;
-    cout << "Expanding this state... \n";
+    printEuclideanSolutionPath(ptr->parent);
+    
+    if (choice == 3){
+        cout << "The best state to expand with g(n) = " << ptr->getGn() << " and h(n) = " << ptr->getHnEuclidean() << " is..." << endl;
+        cout << "Expanding this state... \n";
+    }
+    
     displayNode(ptr);
     cout << endl;
 }

@@ -1,5 +1,3 @@
-
-
 #include "../headers/Node.h"
 #include "../headers/Tree.h"
 #include "../headers/Problem.h"
@@ -168,11 +166,9 @@ queue<Node*>* Node::expand(Problem* p){
     Node* rightChild = p->moveRight(this);
 
     if(upChild != nullptr){
-  
         queue->push(upChild);
     } 
     if(downChild != nullptr){
-
         queue->push(downChild);
     }
     if(leftChild != nullptr){
@@ -181,7 +177,6 @@ queue<Node*>* Node::expand(Problem* p){
     if(rightChild != nullptr){
         queue->push(rightChild);
     }
-    
     //if tree->duplicate, needs tree changes
     return queue;
 }

@@ -49,28 +49,30 @@ int main() {
             case 1:{
                 // Uniform Cost Search
                 AlgUCS ucs;
+                d->setChoice(1);
                 Node* solution = ucs.GeneralSearch(p);
                 if(solution !=nullptr) {
-                    cout << "Solution found!\n\n";
-
                     cout << "Expanding state\n";
                     d->displayNode(p->getInitialState());
                     cout << endl;
-
+                     
                     d->printSolutionPath(solution);
-                    cout << "G(n) = " << solution->getGn() << endl << endl;
+                    cout << "Goal!!!\n";
                 }
                 else
                     cout << "No Solution found!\n";
             }
                 break;
             case 2:
+                d->setChoice(2);
                 cout << endl;
                 // A* with the Misplaced Tile heuristic
                 break;
             case 3:
+
                 // A* Euclidean Distance Heuristic
                 AlgEuclidean euclidean;
+                d->setChoice(3);
                 Node* solution = euclidean.GeneralSearch(p);
                 if(solution != nullptr) {
                     cout << "Solution found!\n\n";
@@ -88,6 +90,10 @@ int main() {
                 } else {
                     cout << "No Solution found!\n";
                 }
+
+
+                cout << endl;
+
                 break;
             default:
                 printf("Sorry, %d is not an option, select again.\n", userChoiceAlg);

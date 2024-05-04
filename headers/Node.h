@@ -36,7 +36,6 @@ private:
 
     // for A* Euclidean search we may receive a decimal value
     float hn_euclidean;  // Euclidean heuristic
-    float fn_euclidean; 
     
 public:
     //Node() no args makes goal state
@@ -73,9 +72,9 @@ public:
     int getHn();
     int getFn();
     
-    // float getFnEuclidean();
-    float getHnEuclidean();
-    string path = "";
+    float getHnEuclidean(); // s
+    string path = ""; //stores the paths taken for each node
+
 
     //checks if nodes have same board state
     bool isEqual(Node* n);
