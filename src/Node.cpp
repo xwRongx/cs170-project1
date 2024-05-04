@@ -24,19 +24,13 @@ Node::Node()
             }
         }
     }
-    parent = nullptr;
-    childLeft = nullptr;
-    childRight = nullptr;
-    childUp = nullptr; 
-    childDown = nullptr;
-
     gn = -1;
     hn = -1;
     fn = -1;
 }
 
 //initialize specific board
-Node::Node(int b[3][3]){
+Node::Node(array<array<int, 3>, 3> b){
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             board[i][j] = b[i][j];
@@ -152,7 +146,15 @@ vector Node::expand(){
 */
 queue<Node*>* Node::expand(Problem* p){
     queue<Node*> *queue = new ::queue<Node*>; //fixed error
-
+     /*
+     cout <<"Initial\n";
+         for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            cout << this->getTile(i,j) << " ";
+        }
+        cout << endl << endl;
+        } 
+    */
     Node* upChild = p->moveUp(this);
     Node* downChild = p->moveDown(this);
     Node* leftChild = p->moveLeft(this);
