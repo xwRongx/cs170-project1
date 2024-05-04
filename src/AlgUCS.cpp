@@ -15,7 +15,6 @@ queue<Node *>* AlgUCS::queuingFunction(queue<Node *> *curr_Queue, queue<Node *> 
         Node * temp = newNodes->front(); //setting temp to front of queue, doesn't affect expanded nodes
         newNodes->pop(); //popping out of queue
         int search_cost = temp->getGn();
-        cout << "gn = " << search_cost << endl;
         priority.push(make_pair(search_cost, temp)); //creating int/Node pair which stores based on Gn cost in new priority queue
     }
     while(!curr_Queue->empty()){

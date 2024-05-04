@@ -51,14 +51,12 @@ int main() {
                 d->setChoice(1);
                 Node* solution = ucs.GeneralSearch(p);
                 if(solution !=nullptr) {
-                    cout << "Solution found!\n\n";
-
                     cout << "Expanding state\n";
                     d->displayNode(p->getInitialState());
                     cout << endl;
-
+                     
                     d->printSolutionPath(solution);
-                    cout << "G(n) = " << solution->getGn() << endl << endl;
+                    cout << "Goal!!!\n";
                 }
                 else
                     cout << "No Solution found!\n";
