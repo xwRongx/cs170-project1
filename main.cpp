@@ -79,8 +79,11 @@ int main() {
                     d->displayNode(p->getInitialState());
                     cout << endl;
 
-                    d->printSolutionPath(solution);
+                    d->printEuclideanSolutionPath(solution);
                     cout << "G(n) = " << solution->getGn() << endl << endl;
+                    
+                    float euclideanDistance = euclidean.calculateEuclideanDistance(solution);
+                    solution->setHnEuclidean(euclideanDistance);
                     cout << "H(n) = " << solution->getHnEuclidean() << endl << endl;
                 } else {
                     cout << "No Solution found!\n";
