@@ -89,11 +89,8 @@ void Node::setHn(int i){
 void Node::setFn(int i){
     fn = i;
 }
-void Node::setHnEuclidean(int i){ // Euclidean Heuristic h(n)
-    hn_euclidean = i;
-}
-void Node::setFnEuclidean(int i){ // Euclidean Function f(n)
-    fn_euclidean = i;
+void Node::setHnEuclidean(float euclideanDistance){ // Euclidean Heuristic h(n)
+    hn_euclidean = euclideanDistance;
 }
 
 //getters
@@ -125,12 +122,10 @@ int Node::getHn(){
 int Node::getFn(){
     return fn;
 }
-float Node::getHnEuclidean(float euclideanDistance){
-    return hn_euclidean = euclideanDistance;
+float Node::getHnEuclidean(){
+    return hn_euclidean;
 }
-float Node::getFnEuclidean(){
-    return fn_euclidean;
-}
+
 
 bool Node::isEqual(Node* n) {
     for (int i = 0; i < 3; i++) {

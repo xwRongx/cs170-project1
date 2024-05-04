@@ -58,8 +58,8 @@ public:
     void setGn(int i);
     void setHn(int i);
     void setFn(int i);
-    void setHnEuclidean(int i);
-    void setFnEuclidean(int i);
+    void setHnEuclidean(float euclideanDistance);
+    // void setFnEuclidean(int i);
 
     //getters
     // return tile at location on board
@@ -73,8 +73,8 @@ public:
     int getHn();
     int getFn();
     
-    float getFnEuclidean();
-    float getHnEuclidean(float euclideanDistance);
+    // float getFnEuclidean();
+    float getHnEuclidean();
     string path = "";
 
     //checks if nodes have same board state
