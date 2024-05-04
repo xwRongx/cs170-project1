@@ -183,7 +183,7 @@ Node* Problem::moveRight(Node *state){
    }
 }
 
-pair<int, int>Problem::findSpace(Node *state){
+pair<int, int>Problem::findSpace(Node* state){
     for(int i = 0; i < 3; i++){
         for(int x = 0; x < 3; x++){
             if(state->getTile(i,x) == 0){
