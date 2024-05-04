@@ -30,3 +30,16 @@ void Display::printSolutionPath(Node* ptr)
     displayNode(ptr);
     cout << endl;
 }
+
+void Display::printEuclideanSolutionPath(Node* ptr)
+{
+    if(ptr->parent == nullptr)
+    {
+        return;
+    }
+    printSolutionPath(ptr->parent);
+    cout << "The best state to expand with g(n) = " << ptr->getGn() << " and h(n) = " << ptr->getHnEuclidean() << " is..." << endl;
+    cout << "Expanding this state... \n";
+    displayNode(ptr);
+    cout << endl;
+}
