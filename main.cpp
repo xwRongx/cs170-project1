@@ -66,7 +66,21 @@ int main() {
                 break;
             case 3:
                 cout << endl;
-                // A* with the Euclidean Distance heuristic
+                AlgEuclidean euclidean;
+                Node* solution = euclidean.GeneralSearch(p);
+                if(solution !=nullptr) {
+                    cout << "Solution found!\n\n";
+
+                    cout << "Expanding state\n";
+                    d->displayNode(p->getInitialState());
+                    cout << endl;
+
+                    d->printSolutionPath(solution);
+                    cout << "G(n) = " << solution->getGn() << endl << endl;
+                    cout << "H(n) =" << solution->getHn() << endl << endl;
+                } else {
+                    cout << "No Solution found!\n";
+                }
                 break;
             default:
                 printf("Sorry, %d is not an option, select again.\n", userChoice);
