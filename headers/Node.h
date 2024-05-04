@@ -37,8 +37,8 @@ private:
 public:
     //Node() no args makes goal state
     Node();
-    //Node(int b[3][3]) takes a 2d array and makes it a node
-    Node(int b[3][3]);
+    //Node(array<array<int, 3>, 3>) takes a 2d array and makes it a node
+    Node(array<array<int, 3>, 3> b);
     //takes parent node and duplicates that board state, sets parent ptr, increments gn
     Node(Node* parentNode);
     ~Node();
