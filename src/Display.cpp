@@ -15,6 +15,9 @@ void Display::displayNode(Node* ptr)
     }
 }
 
+
+
+
 void Display::printSolutionPath(Node* ptr)
 {
     if(ptr->parent == nullptr)
@@ -22,5 +25,8 @@ void Display::printSolutionPath(Node* ptr)
         return;
     }
     printSolutionPath(ptr->parent);
+    cout << "The best state to expand with g(n) = " << ptr->getGn() << " and h(n) = " << ptr->getHn() << " is..." << endl;
+    cout << "Expanding this state... \n";
     displayNode(ptr);
+    cout << endl;
 }

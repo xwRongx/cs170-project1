@@ -9,7 +9,7 @@ using namespace std;
 class Node
 {
 private:
-        friend class Display;
+    friend class Display;
 
     // represents board state as 2D array
     /* board[row][column]

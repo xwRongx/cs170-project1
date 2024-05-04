@@ -50,7 +50,12 @@ int main() {
                 AlgUCS ucs;
                 Node* solution = ucs.GeneralSearch(p);
                 if(solution !=nullptr) {
-                    cout << "Solution found!\n";
+                    cout << "Solution found!\n\n";
+
+                    cout << "Expanding state\n";
+                    d->displayNode(p->getInitialState());
+                    cout << endl;
+
                     d->printSolutionPath(solution);
                     cout << "G(n) = " << solution->getGn() << endl << endl;
                 }

@@ -12,16 +12,6 @@ Node *AlgGeneric::GeneralSearch(Problem* p) {
         Node* node = nodes->front();
         nodes->pop();
 
-        /*
-         * debugging prints
-         if(!nodes->empty()) {
-             cout << "The best state to expand with g(n) = " << node->getGn() << " and h(n) = " << node->getHn() << " is..." << endl;
-             d->displayNode(node);
-             cout << "Expanding this state... \n";
-        }
-        */
-
-
         if(node->isEqual(p->getGoalState())) {
             return node;
         }
