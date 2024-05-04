@@ -81,7 +81,7 @@ int main() {
 
                     d->printSolutionPath(solution);
                     cout << "G(n) = " << solution->getGn() << endl << endl;
-                    cout << "H(n) = " << solution->getHn() << endl << endl;
+                    cout << "H(n) = " << solution->getHnEuclidean() << endl << endl;
                 } else {
                     cout << "No Solution found!\n";
                 }

@@ -32,7 +32,11 @@ private:
     //information for algorithms 
     int gn; //g(n), # steps from initial state 
     int hn; //h(n), heuristic calculation to goal state
-    int fn; //for A* search, f(n) = g(n) + h(n)
+    int fn; //for A* misplaced search, f(n) = g(n) + h(n)
+
+    // for A* Euclidean search we may receive a decimal value
+    float hn_euclidean;  // Euclidean heuristic
+    float fn_euclidean; 
     
 public:
     //Node() no args makes goal state
@@ -54,6 +58,8 @@ public:
     void setGn(int i);
     void setHn(int i);
     void setFn(int i);
+    void setHnEuclidean(int i);
+    void setFnEuclidean(int i);
 
     //getters
     // return tile at location on board
@@ -66,6 +72,9 @@ public:
     int getGn();
     int getHn();
     int getFn();
+    
+    float getFnEuclidean();
+    float getHnEuclidean(float euclideanDistance);
     string path = "";
 
     //checks if nodes have same board state
