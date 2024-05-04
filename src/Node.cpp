@@ -146,9 +146,6 @@ vector Node::expand(){
 */
 queue<Node*>* Node::expand(Problem* p){
     queue<Node*> *queue = new ::queue<Node*>; //fixed error
-    Display *d = new Display;
-    cout << "Expanding node: \n";
-    d->displayNode(queue->front());
      /*
      cout <<"Initial\n";
          for(int i = 0; i < 3; i++){

@@ -11,9 +11,9 @@ using namespace std;
 class Problem
 {
 private:
-    Node* initialState;
-    Node* goalState;
-    Tree* tree;
+    Node* initialState = nullptr;
+    Node* goalState = nullptr;
+    Tree* tree = nullptr;
 public:
     Problem();
     Problem(Node* init);

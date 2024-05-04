@@ -6,9 +6,9 @@ class Node;
 class Tree
 {
 private:
-    Node* root; //root node
-    Node* currentNode;
-    Node* nextNode;
+    Node* root = nullptr;; //root node
+    Node* currentNode = nullptr;;
+    Node* nextNode = nullptr;;
     int nodeCount;
 
 public:
