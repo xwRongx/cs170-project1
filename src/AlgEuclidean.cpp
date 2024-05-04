@@ -18,10 +18,11 @@ queue<Node *>* AlgEuclidean::queuingFunction(queue<Node *> *curr_Queue, queue<No
         newNodes->pop();
 
         int Gn = temp->getGn();
-        float euclideanDistance = calculateEuclideanDistance(temp); 
-        float hn_euclidean = temp->getHnEuclidean(euclideanDistance);
-        float search_cost = Gn + hn_euclidean; 
 
+        float euclideanDistance = calculateEuclideanDistance(temp); 
+        temp->setHnEuclidean(euclideanDistance);
+
+        float search_cost = Gn + euclideanDistance; 
         priority.push(make_pair(search_cost, temp));
     }
     
@@ -30,10 +31,11 @@ queue<Node *>* AlgEuclidean::queuingFunction(queue<Node *> *curr_Queue, queue<No
         curr_Queue->pop();
         
         int Gn = temp->getGn();
-        float euclideanDistance = calculateEuclideanDistance(temp); 
-        float hn_euclidean = temp->getHnEuclidean(euclideanDistance);
-        float search_cost = Gn + hn_euclidean; 
 
+        float euclideanDistance = calculateEuclideanDistance(temp); 
+        temp->setHnEuclidean(euclideanDistance);
+
+        float search_cost = Gn + euclideanDistance; 
         priority.push(make_pair(search_cost, temp));
     }
     
@@ -46,35 +48,6 @@ queue<Node *>* AlgEuclidean::queuingFunction(queue<Node *> *curr_Queue, queue<No
         priority.pop();
     }
     return frontier;
-}
-
-float AlgEuclidean::calculateEuclideanDistance(Node* node) {
-    int currentRow = -1;
-    int currentCol = -1;
-    int goalRow = -1;
-    int goalCol = -1;
-    
-    // Find the positions of the current node and the goal node
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (node->getTile(i, j) == 0) {
-                currentRow = i;
-                currentCol = j;
-            }
-            if (goalState[i][j] == 0) {
-                goalRow = i;
-                goalCol = j;
-            }
-        }
-    }
-
-    // Calculate Euclidean distance
-    int dRow = currentRow - goalRow;
-    int dCol = currentCol - goalCol;
-    float squaredDistance = (dRow * dRow) + (dCol * dCol);
-    float distance = sqrt(squaredDistance);
-    
-    return distance;
 }
 
 AlgEuclidean::AlgEuclidean() {
