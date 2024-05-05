@@ -2,7 +2,7 @@
 #include "headers/Problem.h"
 #include "headers/AlgUCS.h"
 #include "headers/AlgEuclidean.h"
-#include "headers/AlgMisplaced.h"
+#include "headers/AlgMisplaced.h
 #include "headers/Display.h"
 #include <array>
 const int board_size = 3;
@@ -78,6 +78,7 @@ int main() {
                 AlgMisplaced a_star_misplaced;
                 d->setChoice(2);
                 Node* solution = a_star_misplaced.GeneralSearch(p);
+
                 if(solution !=nullptr) {
                     cout << "Expanding state\n";
                     d->displayNode(p->getInitialState());
@@ -103,7 +104,7 @@ int main() {
                     cout << "Expanding state\n";
                     d->displayNode(p->getInitialState());
                     cout << endl;
-                    d->printSolutionPath(solution);
+                    d->printEuclideanSolutionPath(solution);
                     cout << "Goal!!!\n";
 
                     totalNodeCount = p->getnodeCount();
@@ -114,6 +115,7 @@ int main() {
                 else
                     cout << "No Solution found!\n";
             }
+
                 break;
             default:
                 printf("Sorry, %d is not an option, select again.\n", userChoiceAlg);
