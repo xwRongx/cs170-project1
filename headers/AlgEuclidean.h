@@ -2,6 +2,7 @@
 #define ALGEUCLIDEAN
 
 #include "AlgGeneric.h"
+#include "Problem.h"
 #include <cmath>
 
 using namespace std;

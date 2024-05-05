@@ -20,8 +20,6 @@ void Display::setChoice(int alg_choice){
     choice = alg_choice;
 }
 
-
-
 void Display::printSolutionPath(Node* ptr)
 {
     if(ptr->parent == nullptr)

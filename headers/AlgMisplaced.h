@@ -3,6 +3,8 @@
 
 #include "AlgGeneric.h"
 #include <vector>
+#include "Problem.h"
+
 
 using namespace std;
 

@@ -8,6 +8,8 @@ using namespace std;
 #ifndef PROBLEM
 #define PROBLEM
 
+//board size for all files
+#define SIZE 3
 class Problem
 {
 private:
@@ -17,7 +19,6 @@ private:
 public:
     Problem();
     Problem(Node* init);
-
     //setters
     void setInitialState(Node* init);
     void setGoalState(Node* goal);

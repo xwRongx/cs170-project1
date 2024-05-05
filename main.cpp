@@ -5,7 +5,8 @@
 #include "headers/AlgMisplaced.h"
 #include "headers/Display.h"
 #include <array>
-array<array<int, 3>, 3> createCustomNode();
+const int board_size = 3;
+array<array<int, board_size>, board_size> createCustomNode();
 
 using namespace std;
 
@@ -130,18 +131,18 @@ int main() {
     
 
 }
-array<array<int, 3>, 3> createCustomNode(){
-    array<array<int, 3>, 3> myarr{};
+array<array<int, board_size>, board_size> createCustomNode(){
+    array<array<int, board_size>, board_size> myarr{};
     std::cout << "Enter the first row, use space or tabs between numbers:";
-    for(int x = 0; x < 3;x++){
+    for(int x = 0; x < board_size;x++){
         std::cin >> myarr[0][x];
     }
     std::cout << "Enter the second row, use space or tabs between numbers:";
-    for(int x = 0; x < 3;x++){
+    for(int x = 0; x < board_size;x++){
         std::cin >> myarr[1][x];
     }
     std::cout << "Enter the third row, use space or tabs between numbers:";
-    for(int x = 0; x < 3;x++){
+    for(int x = 0; x < board_size;x++){
         std::cin >> myarr[2][x];
     }
     return myarr;

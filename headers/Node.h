@@ -4,6 +4,7 @@
 #include <queue>
 #include "Problem.h"
 #include "Display.h"
+#include <vector>
 using namespace std;
 
 class Node
@@ -20,6 +21,8 @@ private:
 
     Empty tile is represented by 0
     */
+
+   
     int board[3][3];
 
     //relational nodes in tree

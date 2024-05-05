@@ -3,6 +3,7 @@
 
 #include "Node.h"
 #include <queue>
+#include "Problem.h"
 
 using namespace std;
 
