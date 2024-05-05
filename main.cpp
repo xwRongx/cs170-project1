@@ -122,7 +122,7 @@ int main() {
         }
         if(searchRun)
         {
-            cout << "To solve this problem the search algorithm expanded as total of " << totalNodeCount << " nodes." << endl;
+            cout << "To solve this problem the search algorithm expanded a total of " << totalNodeCount << " nodes." << endl;
             cout << "The maximum number of nodes in the queue at any time: " << maxQueueNodeCount << "." << endl;
             cout << "The depth of the goal node was : " << goalDepth << "." << endl;
         }

@@ -27,7 +27,7 @@ void Display::printSolutionPath(Node* ptr)
         return;
     }
     printSolutionPath(ptr->parent);
-    if(choice < 1)
+    if(choice > 1)
         cout << "The best state to expand with g(n) = " << ptr->getGn() << " and h(n) = " << ptr->getHn() << " is..." << endl;
     else if(choice ==1)
         cout << "The best state to expand with g(n) = " << ptr->getGn() << " is..." << endl;
