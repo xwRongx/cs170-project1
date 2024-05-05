@@ -2,15 +2,12 @@
 #define ALGMISPLACED
 
 #include "AlgGeneric.h"
-
+#include <vector>
 
 using namespace std;
 
 class AlgMisplaced : public AlgGeneric {
 private:
-bool compareNodeByGn(Node* a, Node* b) {
-    return a->getFn() > b->getFn();
-}
 
 int numberMisplacedTiles(Node* node)
 {
@@ -25,7 +22,6 @@ int numberMisplacedTiles(Node* node)
     }    
     return count;    
 }
-
 
 public:
     queue<Node*>* queuingFunction(queue<Node*>*, queue<Node*>*) override;
