@@ -1,6 +1,7 @@
 #include <iostream>
 #include "headers/Problem.h"
 #include "headers/AlgUCS.h"
+#include "headers/AlgMisplaced.h"
 #include "headers/AlgEuclidean.h"
 #include "headers/Display.h"
 
@@ -64,9 +65,22 @@ int main() {
             }
                 break;
             case 2:
-                d->setChoice(2);
-                cout << endl;
                 // A* with the Misplaced Tile heuristic
+                AlgMisplaced misplaced;
+                d->setChoice(2);
+                Node* solution = misplaced.GeneralSearch(p);
+                if(solution !=nullptr) {
+                    cout << "Expanding state\n";
+                    d->displayNode(p->getInitialState());
+                    cout << endl;
+                     
+                    d->printSolutionPath(solution);
+                    cout << "Goal!!!\n";
+                }
+                else {
+                    cout << "No Solution found!\n";
+                }
+                
                 break;
             case 3:
                 // A* Euclidean Distance Heuristic
