@@ -126,9 +126,6 @@ float Node::getHnEuclidean(){
 }
 
 
-void Node::setHnEuclidean(float euclideanDistance){ // Euclidean Heuristic h(n)
-    hn_euclidean = euclideanDistance;
-}
 
 bool Node::isEqual(Node* n) {
     for (int i = 0; i < 3; i++) {
