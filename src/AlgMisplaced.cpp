@@ -1,45 +1,47 @@
 #include "../headers/AlgMisplaced.h"
-queue<Node *>* AlgMisplaced::queingFunction(queue<Node*> *q1, queue<Node*> *q2) {
-    priority_queue<Node*, vector<Node*>, decltype(&compareNodeByGn)> pq1(compareNodeByGn), pq2(compareNodeByGn);
+queue<Node *>* AlgMisplaced::queuingFunction(queue<Node*> *q1, queue<Node*> *q2) {
     queue<Node *> *mergedQueue = new queue<Node *>();
+    
+    vector<Node*> vec1;
 
     while (!q1->empty()) {
-        pq1.push(q1->front());
+        Node* currNode = q1->front();
         q1->pop();
-    }
-    while (!q2->empty()) {
-        pq2.push(q2->front());
-        q2->pop();
+        currNode->setHn(numberMisplacedTiles(currNode));
+        currNode->setFn(currNode->getHn() + currNode->getGn());
+        cout << currNode->getFn() << endl;
+        vec1.push_back(currNode);
     }
 
-    while (!pq1.empty() || !pq2.empty()) 
-    {
-        if (!pq1.empty() && !pq2.empty()) 
-        {
-            if (!compareNodeByGn(pq1.top(), pq2.top())) 
-            {
-                mergedQueue->push(pq1.top());
-                pq1.pop();
-            } 
-            else 
-            {
-                mergedQueue->push(pq2.top());
-                pq2.pop();
+    while (!q2->empty()) {
+        Node* currNode = q2->front();
+        q2->pop();
+        currNode->setHn(numberMisplacedTiles(currNode));
+        currNode->setFn(currNode->getHn() + currNode->getGn());
+        cout << currNode->getFn() << endl;
+        vec1.push_back(currNode);
+    }
+
+    
+    int n = vec1.size();
+    for (int i = 0; i < n - 1; ++i) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; ++j) {
+            if (vec1[j]->getFn() < vec1[minIndex]->getFn()) {
+                minIndex = j;
             }
-        } 
-        else if (!pq1.empty()) 
-        {
-            mergedQueue->push(pq1.top());
-            pq1.pop();
-        } 
-        else if (!pq2.empty()) 
-        {
-            mergedQueue->push(pq2.top());
-            pq2.pop();
+        }
+        if (minIndex != i) {
+            swap(vec1[i], vec1[minIndex]);
         }
     }
 
+    for(int i = 0; i < vec1.size(); i++)
+    {
+        mergedQueue->push(vec1[i]);
+    }    
     return mergedQueue;
+}
 AlgMisplaced::AlgMisplaced() {
 
 }
