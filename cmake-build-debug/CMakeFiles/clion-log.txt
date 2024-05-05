@@ -1,4 +1,0 @@
-Cannot generate into C:\Users\theff\Documents\GitHub\cs170-project1\cmake-build-debug
-It is already used for project C:\Users\Citrus\Documents\GitHub\cs170-project1
-
-Please either delete it manually or select another generation directory

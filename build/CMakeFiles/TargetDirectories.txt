@@ -1,5 +1,0 @@
-/Users/daciarios/cs170-project1/build/CMakeFiles/EightPuzzle.dir
-/Users/daciarios/cs170-project1/build/CMakeFiles/edit_cache.dir
-/Users/daciarios/cs170-project1/build/CMakeFiles/rebuild_cache.dir
-/Users/daciarios/cs170-project1/build/src/CMakeFiles/edit_cache.dir
-/Users/daciarios/cs170-project1/build/src/CMakeFiles/rebuild_cache.dir

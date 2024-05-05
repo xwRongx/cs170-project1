@@ -28,10 +28,21 @@ void Tree::decrementNodes(){
     nodeCount--;
 }
 
+void Tree::setnodeCount(int i)
+{
+    nodeCount = i;
+}
+
 //getters
 Node* Tree::getRoot() const {
     return root;
 }
+
+int Tree::getnodeCount()
+{
+    return nodeCount;
+}
+
 
 // Advances the tree to the next node
 Node* Tree::getNextNode(){

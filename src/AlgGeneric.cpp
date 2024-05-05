@@ -4,6 +4,7 @@
 using namespace std;
 
 Node *AlgGeneric::GeneralSearch(Problem* p) {
+    maxQueueNodes = 0;
     Display *d = new Display;
     queue<Node*>* nodes = new queue<Node*>;
     nodes->push(p->getInitialState());
@@ -17,6 +18,7 @@ Node *AlgGeneric::GeneralSearch(Problem* p) {
         }
 
         nodes = queuingFunction(nodes, node->expand(p));
+        maxQueueNodes = (maxQueueNodes > nodes->size()) ? maxQueueNodes : nodes->size();
         if (nodes == nullptr) {
             // If queuingFunction returns nullptr, exit the loop
             break;
