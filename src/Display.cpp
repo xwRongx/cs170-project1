@@ -20,8 +20,6 @@ void Display::setChoice(int alg_choice){
     choice = alg_choice;
 }
 
-
-
 void Display::printSolutionPath(Node* ptr)
 {
     if(ptr->parent == nullptr)
@@ -29,7 +27,7 @@ void Display::printSolutionPath(Node* ptr)
         return;
     }
     printSolutionPath(ptr->parent);
-    if(choice == 2)
+    if(choice > 1)
         cout << "The best state to expand with g(n) = " << ptr->getGn() << " and h(n) = " << ptr->getHn() << " is..." << endl;
     else if(choice == 1)
         cout << "The best state to expand with g(n) = " << ptr->getGn() << " is..." << endl;

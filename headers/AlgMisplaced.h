@@ -3,6 +3,8 @@
 
 #include "AlgGeneric.h"
 #include <vector>
+#include "Problem.h"
+
 
 using namespace std;
 
@@ -17,7 +19,7 @@ int numberMisplacedTiles(Node* node)
     {
         for(int j = 0; j < 3; j++)
         {
-            if(goalState[i][j] == node->getTile(i,j)) count++;
+            if(goalState[i][j] != node->getTile(i,j)) count++;
         }
     }    
     return count;    

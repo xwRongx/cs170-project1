@@ -1,3 +1,0 @@
-C:/Users/Citrus/Documents/GitHub/cs170-project1/cmake-build-debug/CMakeFiles/EightPuzzle.dir
-C:/Users/Citrus/Documents/GitHub/cs170-project1/cmake-build-debug/CMakeFiles/ALL_BUILD.dir
-C:/Users/Citrus/Documents/GitHub/cs170-project1/cmake-build-debug/CMakeFiles/ZERO_CHECK.dir

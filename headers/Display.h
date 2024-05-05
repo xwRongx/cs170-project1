@@ -8,6 +8,7 @@
 #include <vector> 
 #include <ctime>
 #include "../headers/Node.h"
+#include "Problem.h"
 using namespace std;
 #ifndef DISPLAY_H
 #define DISPLAY_H

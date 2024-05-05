@@ -1,7 +1,7 @@
 #include "../headers/Problem.h"
 #include "../headers/Node.h"
 #include "../headers/Tree.h"
-
+#include <array>    
 
 //hardcoded problem
 Problem::Problem(){
@@ -43,6 +43,17 @@ Node* Problem::getGoalState(){
 Tree* Problem::getTree(){
     return tree;
 }
+
+int Problem::getnodeCount()
+{
+    return getTree()->getnodeCount();
+}
+
+void Problem::setnodeCount(int i)
+{
+    getTree()->setnodeCount(i);
+}
+
 
 //Operators (move empty space up/down/left/right)
 Node* Problem::moveUp(Node *state){

@@ -51,4 +51,5 @@ queue<Node *>* AlgEuclidean::queuingFunction(queue<Node *> *curr_Queue, queue<No
 }
 
 AlgEuclidean::AlgEuclidean() {
+
 }
