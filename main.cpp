@@ -1,6 +1,7 @@
 #include <iostream>
 #include "headers/Problem.h"
 #include "headers/AlgUCS.h"
+#include "headers/AlgEuclidean.h"
 #include "headers/Display.h"
 
 array<array<int, 3>, 3> createCustomNode();
@@ -68,9 +69,21 @@ int main() {
                 // A* with the Misplaced Tile heuristic
                 break;
             case 3:
+                // A* Euclidean Distance Heuristic
+                AlgEuclidean euclidean;
                 d->setChoice(3);
-                cout << endl;
-                // A* with the Euclidean Distance heuristic
+                Node* solution = euclidean.GeneralSearch(p);
+                if(solution != nullptr) {
+                    cout << "Expanding state\n";
+                    d->displayNode(p->getInitialState());
+                    cout << endl;
+
+                    d->printEuclideanSolutionPath(solution);
+                    cout << "Goal!!!\n";
+                } else {
+                    cout << "No Solution found!\n";
+                }
+
                 break;
             default:
                 printf("Sorry, %d is not an option, select again.\n", userChoiceAlg);

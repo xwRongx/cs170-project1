@@ -20,9 +20,11 @@ class Display
         Display();
         void displayNode(Node* ptr);
         void printSolutionPath(Node* ptr);
+
+        void printEuclideanSolutionPath(Node* ptr);
+
         void setChoice(int alg_choice);
+
         friend class Node;
-
-
 };
 #endif

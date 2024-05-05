@@ -87,6 +87,9 @@ void Node::setHn(int i){
 void Node::setFn(int i){
     fn = i;
 }
+void Node::setHnEuclidean(float euclideanDistance){ // Euclidean Heuristic h(n)
+    hn_euclidean = euclideanDistance;
+}
 
 //getters
 int Node::getTile(int row, int col){
@@ -117,6 +120,10 @@ int Node::getHn(){
 int Node::getFn(){
     return fn;
 }
+float Node::getHnEuclidean(){
+    return hn_euclidean;
+}
+
 
 bool Node::isEqual(Node* n) {
     for (int i = 0; i < 3; i++) {
