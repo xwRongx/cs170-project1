@@ -21,7 +21,6 @@ public:
     void setNextNode(Node* node);
     void incrementNodes();
     void decrementNodes();
-    void setnodeCount(int i);
 
     //getters
     Node* getRoot() const;
@@ -32,8 +31,6 @@ public:
     bool searchForDuplicate(Node* currentNode, Node* newNode);
     bool isThereADuplicate(Node* newNode);
     void duplicateCheck();
-
-    int getnodeCount();
 };
 
 

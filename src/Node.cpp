@@ -2,7 +2,6 @@
 #include "../headers/Tree.h"
 #include "../headers/Problem.h"
 #include <queue>
-#include<array>
 
 using namespace std;
 
@@ -125,10 +124,6 @@ float Node::getHnEuclidean(){
     return hn_euclidean;
 }
 
-
-void Node::setHnEuclidean(float euclideanDistance){ // Euclidean Heuristic h(n)
-    hn_euclidean = euclideanDistance;
-}
 
 bool Node::isEqual(Node* n) {
     for (int i = 0; i < 3; i++) {

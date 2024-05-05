@@ -4,7 +4,6 @@
 #include "AlgGeneric.h"
 #include <utility>
 #include <functional>
-#include "Problem.h"
 
 using namespace std;
 

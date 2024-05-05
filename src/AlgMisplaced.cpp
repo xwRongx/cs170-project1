@@ -9,6 +9,7 @@ queue<Node *>* AlgMisplaced::queuingFunction(queue<Node*> *q1, queue<Node*> *q2)
         q1->pop();
         currNode->setHn(numberMisplacedTiles(currNode));
         currNode->setFn(currNode->getHn() + currNode->getGn());
+        cout << currNode->getFn() << endl;
         vec1.push_back(currNode);
     }
 
@@ -17,6 +18,7 @@ queue<Node *>* AlgMisplaced::queuingFunction(queue<Node*> *q1, queue<Node*> *q2)
         q2->pop();
         currNode->setHn(numberMisplacedTiles(currNode));
         currNode->setFn(currNode->getHn() + currNode->getGn());
+        cout << currNode->getFn() << endl;
         vec1.push_back(currNode);
     }
 

@@ -1,14 +1,15 @@
 #include <iostream>
 #include "headers/Problem.h"
 #include "headers/AlgUCS.h"
+#include "headers/AlgMisplaced.h"
 #include "headers/AlgEuclidean.h"
-#include "headers/AlgMisplaced.h
 #include "headers/Display.h"
-#include <array>
-const int board_size = 3;
-array<array<int, board_size>, board_size> createCustomNode();
+
+array<array<int, 3>, 3> createCustomNode();
 
 using namespace std;
+
+
 
 int main() {
     auto *p = new Problem;
@@ -37,10 +38,6 @@ int main() {
         }
 
     int userChoiceAlg = -1;
-    bool searchRun;
-    int maxQueueNodeCount = 0;
-    int totalNodeCount = 1;
-    int goalDepth = 0;
     while(userChoiceAlg != 0) {
         cout << "Type the number of the desired algorithm to use: \n"
                "1 - Uniform Cost Search\n"
@@ -48,8 +45,7 @@ int main() {
                "3 - A* with the Euclidean Distance heuristic\n"
                "0 - Exit\n";
         cin >> userChoiceAlg;
-        
-        searchRun = true;
+
         switch (userChoiceAlg) {
             case 1:{
                 // Uniform Cost Search
@@ -60,92 +56,70 @@ int main() {
                     cout << "Expanding state\n";
                     d->displayNode(p->getInitialState());
                     cout << endl;
-
+                     
                     d->printSolutionPath(solution);
                     cout << "Goal!!!\n";
-
-                    totalNodeCount = p->getnodeCount();
-                    maxQueueNodeCount = ucs.getMaxNodes();
-                    goalDepth = solution->getGn();
-                    p->setnodeCount(0);
                 }
                 else
                     cout << "No Solution found!\n";
             }
                 break;
-            case 2:{
+            case 2:
                 // A* with the Misplaced Tile heuristic
-                AlgMisplaced a_star_misplaced;
+                AlgMisplaced misplaced;
                 d->setChoice(2);
-                Node* solution = a_star_misplaced.GeneralSearch(p);
-
+                Node* solution = misplaced.GeneralSearch(p);
                 if(solution !=nullptr) {
                     cout << "Expanding state\n";
                     d->displayNode(p->getInitialState());
                     cout << endl;
+                     
                     d->printSolutionPath(solution);
                     cout << "Goal!!!\n";
-
-                    totalNodeCount = p->getnodeCount();
-                    maxQueueNodeCount = a_star_misplaced.getMaxNodes();
-                    goalDepth = solution->getGn();
-                    p->setnodeCount(0);
                 }
-                else
+                else {
                     cout << "No Solution found!\n";
-            }
+                }
+                
                 break;
-            case 3:{
-                // A* with the Euclidean Distance heuristic
-                AlgEuclidean a_star_euclid;
+            case 3:
+                // A* Euclidean Distance Heuristic
+                AlgEuclidean euclidean;
                 d->setChoice(3);
-                Node* solution = a_star_euclid.GeneralSearch(p);
-                if(solution !=nullptr) {
+                Node* solution = euclidean.GeneralSearch(p);
+                if(solution != nullptr) {
                     cout << "Expanding state\n";
                     d->displayNode(p->getInitialState());
                     cout << endl;
+
                     d->printEuclideanSolutionPath(solution);
                     cout << "Goal!!!\n";
-
-                    totalNodeCount = p->getnodeCount();
-                    maxQueueNodeCount = a_star_euclid.getMaxNodes();
-                    goalDepth = solution->getGn();
-                    p->setnodeCount(0);
-                }
-                else
+                } else {
                     cout << "No Solution found!\n";
-            }
+                }
 
                 break;
             default:
                 printf("Sorry, %d is not an option, select again.\n", userChoiceAlg);
-                searchRun = false;
                 break;
         }
-        if(searchRun)
-        {
-            cout << "To solve this problem the search algorithm expanded a total of " << totalNodeCount << " nodes." << endl;
-            cout << "The maximum number of nodes in the queue at any time: " << maxQueueNodeCount << "." << endl;
-            cout << "The depth of the goal node was : " << goalDepth << "." << endl;
-        }
-
     }
-    
-
 }
-array<array<int, board_size>, board_size> createCustomNode(){
-    array<array<int, board_size>, board_size> myarr{};
+
+
+array<array<int, 3>, 3> createCustomNode(){
+    array<array<int, 3>, 3> myarr{};
     std::cout << "Enter the first row, use space or tabs between numbers:";
-    for(int x = 0; x < board_size;x++){
+    for(int x = 0; x < 3;x++){
         std::cin >> myarr[0][x];
     }
     std::cout << "Enter the second row, use space or tabs between numbers:";
-    for(int x = 0; x < board_size;x++){
+    for(int x = 0; x < 3;x++){
         std::cin >> myarr[1][x];
     }
     std::cout << "Enter the third row, use space or tabs between numbers:";
-    for(int x = 0; x < board_size;x++){
+    for(int x = 0; x < 3;x++){
         std::cin >> myarr[2][x];
     }
     return myarr;
-};
+}

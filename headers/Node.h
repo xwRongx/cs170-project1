@@ -4,7 +4,6 @@
 #include <queue>
 #include "Problem.h"
 #include "Display.h"
-#include <vector>
 using namespace std;
 
 class Node
@@ -21,8 +20,6 @@ private:
 
     Empty tile is represented by 0
     */
-
-   
     int board[3][3];
 
     //relational nodes in tree
@@ -35,7 +32,6 @@ private:
     //information for algorithms 
     int gn; //g(n), # steps from initial state 
     int hn; //h(n), heuristic calculation to goal state
-
     int fn; //for A* misplaced search, f(n) = g(n) + h(n)
 
     // for A* Euclidean search we may receive a decimal value
