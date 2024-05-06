@@ -4,6 +4,7 @@
 #include "AlgGeneric.h"
 #include <vector>
 #include "Problem.h"
+#include <queue>
 
 
 using namespace std;
@@ -23,6 +24,14 @@ int numberMisplacedTiles(Node* node)
     }    
     return count;    
 }
+
+struct CompareNodeFn 
+    {
+        bool operator()(Node* a,  Node* b) const {
+            return a->getFn() > b->getFn();
+        }
+    };
+
 
 public:
     queue<Node*>* queuingFunction(queue<Node*>*, queue<Node*>*) override;
