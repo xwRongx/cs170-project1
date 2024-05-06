@@ -2,7 +2,7 @@
 #include "headers/Problem.h"
 #include "headers/AlgUCS.h"
 #include "headers/AlgEuclidean.h"
-#include "headers/AlgMisplaced.h
+#include "headers/AlgMisplaced.h"
 #include "headers/Display.h"
 #include <array>
 const int board_size = 3;
