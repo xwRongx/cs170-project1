@@ -24,7 +24,6 @@ Node::Node()
             }
         }
     }
-    hash_value = this->hash();
     gn = -1;
     hn = -1;
     fn = -1;
@@ -37,7 +36,6 @@ Node::Node(array<array<int, SIZE>, SIZE> b){
             board[i][j] = b[i][j];
         }
     }
-    hash_value = this->hash();
     gn = 0;
     hn = 0;
     fn = 0;
@@ -52,7 +50,6 @@ Node::Node(Node* parentNode){
     }
     //parentNode->childDown; change based on operator
     //tree->incrementNodes(); is ran inside problem.cpp in each operator
-    hash_value = this->hash();
     gn = parentNode->getGn()+1;
     hn = 0;
     fn = 0;
@@ -185,11 +182,11 @@ queue<Node*>* Node::expand(Problem* p){
     return queue;
 }
 
-int Node::hash() {
-    int val;
+string Node::hash() {
+    string val;
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
-            val += this->getTile(i, j) * (i + j + 1);
+            val += this->getTile(i, j);
         }
     }
     return val;

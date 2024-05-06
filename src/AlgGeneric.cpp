@@ -8,7 +8,7 @@ Node *AlgGeneric::GeneralSearch(Problem* p) {
     Display *d = new Display;
     queue<Node*>* nodes = new queue<Node*>;
     nodes->push(p->getInitialState());
-    p->resetMemoization();
+    //p->resetMemoization();
 
     while(!nodes->empty()){
         Node* node = nodes->front();
@@ -21,7 +21,7 @@ Node *AlgGeneric::GeneralSearch(Problem* p) {
 
         nodes = queuingFunction(nodes, node->expand(p));
 
-        // maxQueueNodes = (maxQueueNodes > nodes->size()) ? maxQueueNodes : nodes->size();
+        maxQueueNodes = (maxQueueNodes > nodes->size()) ? maxQueueNodes : nodes->size();
         if (nodes == nullptr) {
             // If queuingFunction returns nullptr, exit the loop
             break;

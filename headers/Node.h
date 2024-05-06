@@ -85,9 +85,9 @@ public:
     //returns vector of new nodes created via using valid operators 
     queue<Node*>* expand(Problem* p);
 
-    int hash(); // hash function for memoization
+    string hash(); // hash function for memoization
 
-    int hash_value;
+    basic_string<char> hash_value;
 };
 
 #endif

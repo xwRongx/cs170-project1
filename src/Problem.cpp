@@ -80,7 +80,7 @@ Node* Problem::moveUp(Node *state){
         cout << endl << endl;
     }*/
      //Check if new node is a duplicate
-    if(tree->isThereADuplicate(upNode)){
+    if(tree->isThereADuplicate(upNode)/*memoize(rightNode)*/){
         return nullptr;
     }else{
         state->setChildUp(upNode);
@@ -114,7 +114,7 @@ Node* Problem::moveDown(Node* state){
         cout << endl << endl;
     }*/
     
-    if(memoize(downNode)){
+    if(tree->isThereADuplicate(downNode)/*memoize(rightNode)*/){
         return nullptr;
     }else{
         state->setChildDown(downNode);//fixed error
@@ -149,7 +149,7 @@ Node* Problem::moveLeft(Node *state){
          }
     */
     // Check if new node is a duplicate
-    if(memoize(leftNode)){
+    if(tree->isThereADuplicate(leftNode)/*memoize(rightNode)*/){
         return nullptr;
     }else{
         state->setChildLeft(leftNode);//fixed error
@@ -182,7 +182,7 @@ Node* Problem::moveRight(Node *state){
         cout << endl << endl;
         } */
         // Check if new node is a duplicate
-     if(memoize(rightNode)){
+     if(tree->isThereADuplicate(rightNode)/*memoize(rightNode)*/){
         return nullptr;
      }else{
          state->setChildRight(rightNode);//fixed error
@@ -214,17 +214,20 @@ Problem::~Problem(){
 }
 
 /*
+ *
  * Returns FALSE if node's board does not exist in map (it is a new state)
  * Returns TRUE if node's board exists in map (it has been memozied already)
- */
+
 bool Problem::memoize(Node *node) {
+    basic_string<char> hash_value = node->hash();
     try {
         // exists in map
-        memoization.at(node->hash_value);
+        memoization.at(hash_value);
         return true;
     } catch (...) {
         // does not exist in map
-        memoization[node->hash_value] = true;
+        memoization[hash_value] = true;
+        node->hash_value = hash_value;
         return false;
     }
 }
@@ -232,3 +235,4 @@ bool Problem::memoize(Node *node) {
 void Problem::resetMemoization() {
     memoization.clear();
 }
+ */

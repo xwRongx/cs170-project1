@@ -18,7 +18,7 @@ private:
     Node* goalState = nullptr;
     Tree* tree = nullptr;
     bool memoize(Node* node);
-    map<int, bool> memoization; // hash value of board state of node, boolean for if it exists or not
+    map<basic_string<char>, bool> memoization; // hash value of board state of node, boolean for if it exists or not
 
 public:
     Problem();
