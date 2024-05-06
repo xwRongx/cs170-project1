@@ -11,10 +11,11 @@ using namespace std;
 Node::Node()
 {
     int tile = 1;
+    int board_size = SIZE*SIZE;
     //initialize board to goal state
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            if(tile < 9){
+    for(int i = 0; i < SIZE; i++){
+        for(int j = 0; j < SIZE; j++){
+            if(tile < board_size){
                 board[i][j] = tile;
                 tile++; 
             }
@@ -29,9 +30,9 @@ Node::Node()
 }
 
 //initialize specific board
-Node::Node(array<array<int, 3>, 3> b){
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
+Node::Node(array<array<int, SIZE>, SIZE> b){
+    for(int i = 0; i < SIZE; i++){
+        for(int j = 0; j < SIZE; j++){
             board[i][j] = b[i][j];
         }
     }
@@ -42,8 +43,8 @@ Node::Node(array<array<int, 3>, 3> b){
 
 Node::Node(Node* parentNode){
     parent = parentNode;
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
+    for(int i = 0; i < SIZE; i++){
+        for(int j = 0; j < SIZE; j++){
             board[i][j] = parentNode->board[i][j];
         }
     }
@@ -126,8 +127,8 @@ float Node::getHnEuclidean(){
 }
 
 bool Node::isEqual(Node* n) {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
             if (board[i][j] != n->getTile(i, j)) {
                 return false; // if there is a difference in any tile then return false
             }
