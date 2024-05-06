@@ -9,7 +9,7 @@ using namespace std;
 
 class AlgEuclidean : public AlgGeneric {
 private:
-    int goalState[3][3] = {{1,2,3}, {4,5,6},{7,8,0}};    
+    int goalState[SIZE][SIZE];    
 public:
     queue<Node*>* queuingFunction(queue<Node*>*, queue<Node*>*) override;
     
@@ -20,8 +20,8 @@ public:
         int goalCol = -1;
         
         // Find the positions of the current node and the goal node
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
                 if (node->getTile(i, j) == 0) {
                     currentRow = i;
                     currentCol = j;
