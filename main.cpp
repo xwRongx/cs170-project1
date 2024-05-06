@@ -5,8 +5,7 @@
 #include "headers/AlgMisplaced.h"
 #include "headers/Display.h"
 #include <array>
-const int board_size = 3;
-array<array<int, board_size>, board_size> createCustomNode();
+array<array<int, SIZE>, SIZE> createCustomNode();
 
 using namespace std;
 
@@ -22,8 +21,14 @@ int main() {
                 "2 - Custom Initial State\n"
                 "0 - Exit\n";
         cin >> userChoiceState;
+        array<array<int, SIZE>, SIZE> defaultState{};
+        defaultState[0] = {0, 1, 2};
+        defaultState[1] = {4, 5, 3};
+        defaultState[2] = {7, 8, 6};
+        Node* defaultNode = new Node(defaultState);
         switch (userChoiceState) {
             case 1:
+                p->setInitialState(defaultNode);
                 // Default Initial State
                 break;
             case 2: {
@@ -133,19 +138,27 @@ int main() {
     
 
 }
-array<array<int, board_size>, board_size> createCustomNode(){
-    array<array<int, board_size>, board_size> myarr{};
-    std::cout << "Enter the first row, use space or tabs between numbers:";
-    for(int x = 0; x < board_size;x++){
-        std::cin >> myarr[0][x];
+array<array<int, SIZE>, SIZE> createCustomNode(){
+    array<array<int, SIZE>, SIZE> myarr{};
+
+    for(int i = 0; i < SIZE; i++)
+    {
+        std::cout << "Enter row " << i + 1 << ", use space or tabs between numbers:";
+        for(int x = 0; x < SIZE;x++){
+            std::cin >> myarr[i][x];
+        }
     }
-    std::cout << "Enter the second row, use space or tabs between numbers:";
-    for(int x = 0; x < board_size;x++){
-        std::cin >> myarr[1][x];
-    }
-    std::cout << "Enter the third row, use space or tabs between numbers:";
-    for(int x = 0; x < board_size;x++){
-        std::cin >> myarr[2][x];
-    }
+    // std::cout << "Enter the first row, use space or tabs between numbers:";
+    // for(int x = 0; x < board_size;x++){
+    //     std::cin >> myarr[0][x];
+    // }
+    // std::cout << "Enter the second row, use space or tabs between numbers:";
+    // for(int x = 0; x < board_size;x++){
+    //     std::cin >> myarr[1][x];
+    // }
+    // std::cout << "Enter the third row, use space or tabs between numbers:";
+    // for(int x = 0; x < board_size;x++){
+    //     std::cin >> myarr[2][x];
+    // }
     return myarr;
 };
