@@ -8,8 +8,8 @@ Display::Display(){
 
 void Display::displayNode(Node* ptr)
 {
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
+    for(int i = 0; i < SIZE; i++){
+        for(int j = 0; j < SIZE; j++){
             cout << ptr->board[i][j] << " ";
         }
         cout << endl;
