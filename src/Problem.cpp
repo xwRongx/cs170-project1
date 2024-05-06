@@ -5,10 +5,14 @@
 
 //hardcoded problem
 Problem::Problem(){
-    array<array<int, 3>, 3> state{};
-    state[0] = {0, 1, 2};
-    state[1] = {4, 5, 3};
-    state[2] = {7, 8, 6};
+    array<array<int, SIZE>, SIZE> state{};
+    for(int i = 0; i < SIZE; i++)
+    {
+        for(int j = 0; j < SIZE; j++)
+        {
+            state[i][j] = i;
+        }
+    }
     initialState = new Node(state); //change hardcode to test or something
     goalState = new Node(Node());
     tree = new Tree(Tree(initialState));
@@ -94,7 +98,7 @@ Node* Problem::moveDown(Node* state){
    pair<int, int> location = findSpace(state); //Calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
-   if(row < 2 && state->getTile(row + 1, col) != 0){
+   if(row < SIZE - 1 && state->getTile(row + 1, col) != 0){
     Node* downNode = new Node(state);
     int temp = downNode->getTile(row, col);
     downNode->setTile(row, col, downNode->getTile(row+1,col));
@@ -163,7 +167,7 @@ Node* Problem::moveRight(Node *state){
    pair<int, int> location = findSpace(state); //calls find space function to locate empty space (0 element)
    int row = location.first;
    int col= location.second;
-   if(col < 2 && state->getTile(row, col+1) != 0){
+   if(col < SIZE - 1 && state->getTile(row, col+1) != 0){
         Node* rightNode = new Node(state);
         int temp = rightNode->getTile(row,col);
         rightNode->setTile(row,col, rightNode->getTile(row,col+1)); 
@@ -195,8 +199,8 @@ Node* Problem::moveRight(Node *state){
 }
 
 pair<int, int>Problem::findSpace(Node* state){
-    for(int i = 0; i < 3; i++){
-        for(int x = 0; x < 3; x++){
+    for(int i = 0; i < SIZE; i++){
+        for(int x = 0; x < SIZE; x++){
             if(state->getTile(i,x) == 0){
                 return make_pair(i, x); //return pair as row and column
             }
