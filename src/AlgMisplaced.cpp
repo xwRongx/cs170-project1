@@ -41,5 +41,18 @@ queue<Node *>* AlgMisplaced::queuingFunction(queue<Node*> *q1, queue<Node*> *q2)
     return mergedQueue;
 }
 AlgMisplaced::AlgMisplaced() {
-
+    int tile = 1;
+    int board_size = SIZE*SIZE;
+    //initialize board to goal state
+    for(int i = 0; i < SIZE; i++){
+        for(int j = 0; j < SIZE; j++){
+            if(tile < board_size){
+                goalState[i][j] = tile;
+                tile++; 
+            }
+            else{
+                goalState[i][j] = 0;
+            }
+        }
+    }
 }
