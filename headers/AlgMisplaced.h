@@ -26,11 +26,12 @@ int numberMisplacedTiles(Node* node)
 }
 
 struct CompareNodeFn 
+{
+    bool operator()(Node* a,  Node* b) const 
     {
-        bool operator()(Node* a,  Node* b) const {
-            return a->getFn() > b->getFn();
-        }
-    };
+        return a->getFn() > b->getFn();
+    }
+};
 
 
 public:
