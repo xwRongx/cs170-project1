@@ -40,7 +40,7 @@ private:
 
     // for A* Euclidean search we may receive a decimal value
     float hn_euclidean;  // Euclidean heuristic
-    
+
 public:
     //Node() no args makes goal state
     Node();
@@ -84,7 +84,10 @@ public:
     bool isEqual(Node* n);
     //returns vector of new nodes created via using valid operators 
     queue<Node*>* expand(Problem* p);
-    
+
+    int hash(); // hash function for memoization
+
+    int hash_value;
 };
 
 #endif

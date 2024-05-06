@@ -8,17 +8,20 @@ Node *AlgGeneric::GeneralSearch(Problem* p) {
     Display *d = new Display;
     queue<Node*>* nodes = new queue<Node*>;
     nodes->push(p->getInitialState());
+    p->resetMemoization();
 
     while(!nodes->empty()){
         Node* node = nodes->front();
         nodes->pop();
 
         if(node->isEqual(p->getGoalState())) {
+            // found an answer
             return node;
         }
 
         nodes = queuingFunction(nodes, node->expand(p));
-        maxQueueNodes = (maxQueueNodes > nodes->size()) ? maxQueueNodes : nodes->size();
+
+        // maxQueueNodes = (maxQueueNodes > nodes->size()) ? maxQueueNodes : nodes->size();
         if (nodes == nullptr) {
             // If queuingFunction returns nullptr, exit the loop
             break;
@@ -31,4 +34,3 @@ Node *AlgGeneric::GeneralSearch(Problem* p) {
 queue<Node *>* AlgGeneric::queuingFunction(queue<Node *>*, queue<Node *>*) {
     return nullptr;
 }
-

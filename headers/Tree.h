@@ -1,3 +1,5 @@
+#include <map>
+
 class Node;
 
 #ifndef TREE
@@ -6,10 +8,11 @@ class Node;
 class Tree
 {
 private:
-    Node* root = nullptr;; //root node
-    Node* currentNode = nullptr;;
-    Node* nextNode = nullptr;;
+    Node* root = nullptr; //root node
+    Node* currentNode = nullptr;
+    Node* nextNode = nullptr;
     int nodeCount;
+
 
 public:
     //in PROBLEM class, create initial node from user input/ hardcode, then initialize tree with inital node as root

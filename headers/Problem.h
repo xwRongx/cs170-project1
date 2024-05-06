@@ -2,6 +2,7 @@
 #include "Node.h"
 #include "Tree.h"
 #include <utility>
+#include <map>
 #include <functional>
 using namespace std;
 
@@ -16,9 +17,12 @@ private:
     Node* initialState = nullptr;
     Node* goalState = nullptr;
     Tree* tree = nullptr;
+    bool memoize(Node* node);
+    map<int, bool> memoization; // hash value of board state of node, boolean for if it exists or not
+
 public:
     Problem();
-    Problem(Node* init);
+    explicit Problem(Node* init);
     //setters
     void setInitialState(Node* init);
     void setGoalState(Node* goal);
@@ -37,6 +41,7 @@ public:
     Node* moveRight(Node* state);
     pair<int, int>findSpace(Node *state); //Find 0 (empty space) in the 3 by 3 array to begin operators(up, down left, right) 
     void display();
+    void resetMemoization();
 
 
     ~Problem();
