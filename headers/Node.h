@@ -23,7 +23,7 @@ private:
     */
 
    
-    int board[3][3];
+    int board[SIZE][SIZE];
 
     //relational nodes in tree
     Node* parent = nullptr;
@@ -45,7 +45,7 @@ public:
     //Node() no args makes goal state
     Node();
     //Node(array<array<int, 3>, 3>) takes a 2d array and makes it a node
-    Node(array<array<int, 3>, 3> b);
+    Node(array<array<int, SIZE>, SIZE> b);
     //takes parent node and duplicates that board state, sets parent ptr, increments gn
     Node(Node* parentNode);
     ~Node();
